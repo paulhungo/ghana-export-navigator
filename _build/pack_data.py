@@ -6,6 +6,7 @@ mapping = [
     ("destinations.json", "GEN_DESTINATIONS"),
     ("updates.json", "GEN_UPDATES"),
     ("products.json", "GEN_PRODUCTS"),
+    ("directory.json", "GEN_DIRECTORY"),
 ]
 for fname, var in mapping:
     src = os.path.join(BASE, "data", fname)

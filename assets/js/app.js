@@ -40,6 +40,7 @@ GEN.init = function(){
   GEN.renderBuyerTypes();
   GEN.renderUpdates();
   GEN.renderTools();
+  GEN.renderDirectory();
   GEN.populateDocSelect();
   if(GEN.state) GEN.renderRoadmap();
   window.__genLoaded = true;
@@ -564,6 +565,84 @@ GEN.docChecklist = function(pid){
 GEN.renderDocChecklist = function(){
   var pid = document.getElementById('doc-product-select').value;
   document.getElementById('docs-holder').innerHTML = pid ? GEN.docChecklist(pid) : '<div class="card"><p class="muted">Choose a product above to generate your export document checklist.</p></div>';
+};
+
+/* ---------- directory (institutions, buyer channels, fairs, agent toolkit) ---------- */
+GEN.renderDirectory = function(){
+  var dir = window.GEN_DIRECTORY;
+  if(!dir) return;
+  var instH = document.getElementById('directory-inst-holder');
+  if(instH){
+    var h = "";
+    for(var i=0;i<dir.institutions.length;i++){
+      var a = dir.institutions[i];
+      h += '<div class="card"><h3>'+GEN.esc(a.name)+' '+GEN.flagBadge(a.confidence)+'</h3><p class="muted">'+GEN.esc(a.type)+'</p><p style="margin-top:6px">'+GEN.esc(a.what)+'</p>';
+      if(a.contact) h += '<p style="margin-top:6px"><strong>Contact:</strong> '+GEN.esc(a.contact)+'</p>';
+      if(a.website) h += '<p><strong>Website:</strong> <a href="'+GEN.esc(a.website)+'" target="_blank" rel="noopener">'+GEN.esc(a.website.replace(/^https?:\/\//,''))+'</a></p>';
+      h += '<div class="notice green" style="margin-top:8px"><strong>Use it to:</strong> '+GEN.esc(a.use)+'</div>';
+      h += '<div class="verify-line">Information last verified: '+GEN.esc(a.lastVerified)+' · '+GEN.esc(a.source)+'</div></div>';
+    }
+    instH.innerHTML = h;
+  }
+  GEN.renderBuyerChannels();
+  GEN.renderFairs();
+  GEN.renderAgentToolkit();
+};
+
+GEN.renderBuyerChannels = function(){
+  var el = document.getElementById('buyer-channels-holder');
+  var dir = window.GEN_DIRECTORY;
+  if(!el || !dir) return;
+  var h = '<div class="card"><h3>How to actually reach buyers</h3><table><tr><th>Channel</th><th>How</th></tr>';
+  for(var i=0;i<dir.buyerChannels.length;i++){
+    var c = dir.buyerChannels[i];
+    h += '<tr><td><strong>'+GEN.esc(c.channel)+'</strong> '+GEN.flagBadge(c.confidence)+'</td><td>'+GEN.esc(c.how)+'</td></tr>';
+  }
+  h += '</table><div class="verify-line">🛡️ Agree commercial terms BEFORE shipping. Verify buyers before credit — see Trust &amp; Scam Alert.</div></div>';
+  el.innerHTML = h;
+};
+
+GEN.renderFairs = function(){
+  var el = document.getElementById('fairs-holder');
+  var dir = window.GEN_DIRECTORY;
+  if(!el || !dir) return;
+  var h = "";
+  for(var i=0;i<dir.tradeFairs.length;i++){
+    var f = dir.tradeFairs[i];
+    h += '<div style="border-bottom:1px solid var(--line);padding:10px 0"><strong>'+GEN.esc(f.name)+'</strong> '+GEN.flagBadge(f.confidence)+
+      '<p class="muted" style="margin-top:3px">'+GEN.esc(f.focus)+' · '+GEN.esc(f.place)+'</p>'+
+      '<p class="muted">When: '+GEN.esc(f.when)+'</p>';
+    if(f.website) h += '<p><a href="'+GEN.esc(f.website)+'" target="_blank" rel="noopener">'+GEN.esc(f.website.replace(/^https?:\/\//,''))+'</a></p>';
+    h += '<p style="margin-top:3px">💡 '+GEN.esc(f.note)+'</p></div>';
+  }
+  el.innerHTML = h;
+};
+
+GEN.renderAgentToolkit = function(){
+  var el = document.getElementById('agent-toolkit-holder');
+  var dir = window.GEN_DIRECTORY;
+  if(!el || !dir) return;
+  var t = dir.agentToolkit;
+  var h = '<div class="card"><h3>Choose a freight forwarder / clearing agent — verification toolkit</h3>';
+  h += '<div class="grid-2"><div><h3 style="font-size:1rem">Collect</h3><ul class="check">';
+  for(var i=0;i<t.collect.length;i++) h += '<li>'+GEN.esc(t.collect[i])+'</li>';
+  h += '</ul></div><div><h3 style="font-size:1rem">Ask</h3><ul class="check">';
+  for(var q=0;q<t.questions.length;q++) h += '<li>'+GEN.esc(t.questions[q])+'</li>';
+  h += '</ul></div></div>';
+  h += '<div class="notice red" style="margin-top:10px"><strong>🔴 Walk away if you see:</strong><br>'+GEN.esc(t.redFlags.join(" · "))+'</div>';
+  h += '<div class="verify-line">🛡️ GRA states port clearance requires a licensed clearing agent. Verify licence/membership; compare at least two written quotes; pay only verified company accounts.</div></div>';
+  el.innerHTML = h;
+  var instEl = document.getElementById('logistics-inst-holder');
+  if(instEl){
+    var h2 = "";
+    for(var j=0;j<dir.institutions.length;j++){
+      var a2 = dir.institutions[j];
+      if(a2.type==="Industry association" || a2.type==="Government shipping regulator" || a2.type==="Professional body for freight forwarders"){
+        h2 += '<span class="pill">'+GEN.esc(a2.name)+'</span>';
+      }
+    }
+    instEl.innerHTML = h2;
+  }
 };
 
 /* ---------- buyers / updates / tools ---------- */

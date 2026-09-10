@@ -1362,6 +1362,192 @@
       ]
     },
     {
+      "id": "italy",
+      "name": "Italy",
+      "flag": "🇮🇹",
+      "region": "Europe",
+      "tier2sources": [
+        "EU official systems",
+        "Italy food/plant/veterinary inspection services"
+      ],
+      "euMember": true,
+      "byClass": {
+        "plant": {
+          "requirements": [
+            "EU rules apply (see European Union entry)",
+            "Entry ports: Genoa, Naples - significant Mediterranean produce gateway",
+            "Country-of-origin and pack labelling per EU marketing standards"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "animal": {
+          "requirements": [
+            "EU animal-product rules with national border inspection points"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "fish": {
+          "requirements": [
+            "EU fishery-product rules",
+            "Confirmed approved establishments required"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "processed": {
+          "requirements": [
+            "EU food labelling",
+            "Italian-language labelling expected for retail packs"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        }
+      },
+      "general": {
+        "customs": "EU import declaration filed in Italy",
+        "notes": [
+          "EU member state - confirm EU-level rules first"
+        ],
+        "confidence": "yellow"
+      },
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10"
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "flag": "🇪🇸",
+      "region": "Europe",
+      "tier2sources": [
+        "EU official systems",
+        "Spain food/plant/veterinary inspection services"
+      ],
+      "euMember": true,
+      "byClass": {
+        "plant": {
+          "requirements": [
+            "EU rules apply (see European Union entry)",
+            "Entry ports: Algeciras, Valencia, Barcelona - major reefer gateway to southern Europe",
+            "Country-of-origin and pack labelling per EU marketing standards"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "animal": {
+          "requirements": [
+            "EU animal-product rules with national border inspection points"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "fish": {
+          "requirements": [
+            "EU fishery-product rules",
+            "Confirmed approved establishments required"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "processed": {
+          "requirements": [
+            "EU food labelling",
+            "Spanish-language labelling expected for retail packs"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        }
+      },
+      "general": {
+        "customs": "EU import declaration filed in Spain",
+        "notes": [
+          "EU member state - confirm EU-level rules first"
+        ],
+        "confidence": "yellow"
+      },
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10"
+    },
+    {
+      "id": "belgium",
+      "name": "Belgium",
+      "flag": "🇧🇪",
+      "region": "Europe",
+      "tier2sources": [
+        "EU official systems",
+        "Belgium food/plant/veterinary inspection services"
+      ],
+      "euMember": true,
+      "byClass": {
+        "plant": {
+          "requirements": [
+            "EU rules apply (see European Union entry)",
+            "Entry port: Antwerp - one of Europe’s biggest container gateways for perishables",
+            "Country-of-origin and pack labelling per EU marketing standards"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "animal": {
+          "requirements": [
+            "EU animal-product rules with national border inspection points"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "fish": {
+          "requirements": [
+            "EU fishery-product rules",
+            "Confirmed approved establishments required"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        },
+        "processed": {
+          "requirements": [
+            "EU food labelling",
+            "Dutch/French/German trilingual labelling common for retail packs"
+          ],
+          "certificates": [
+            "Same as EU requirements"
+          ],
+          "confidence": "yellow"
+        }
+      },
+      "general": {
+        "customs": "EU import declaration filed in Belgium",
+        "notes": [
+          "EU member state - confirm EU-level rules first"
+        ],
+        "confidence": "yellow"
+      },
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10"
+    },
+    {
       "id": "ecowas",
       "name": "ECOWAS / Regional African markets",
       "flag": "🌍",

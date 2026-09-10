@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "name": "Ghana Agricultural Export Navigator - Buyer & Logistics Directory",
+    "lastVerifiedRun": "2026-09-10",
+    "legend": "Only institutions verified from their official websites carry the green flag. Company-level listings are NOT included until they can be verified from an official source - use the verification toolkit below to check any agent or buyer yourself.",
+    "scamRule": "Pay only verified company/agency accounts. Never send goods on credit to an unverified buyer. Never share MoMo PIN, bank password, OTP or ATM PIN."
+  },
+  "institutions": [
+    {
+      "id": "agi",
+      "name": "Association of Ghana Industries (AGI)",
+      "type": "Industry association",
+      "what": "Ghana's leading private-sector voice (since 1958). Runs a Members Directory, sector groups for Agribusiness, Food & Beverages, Transport & Logistics and Printing & Packaging, plus business networking, market information and events.",
+      "contact": "No. 42 Dr. Isert Street, North Ridge, Accra North · P.O. Box AN-8642 · GA-014-5066 · +233 (0)302 266590 / 251266 · agi@agighana.org",
+      "website": "https://agighana.org",
+      "use": "Find supplier/partner members via the Members Directory; join for trade opportunities and events.",
+      "confidence": "green",
+      "lastVerified": "2026-09-10",
+      "source": "agighana.org verified live 2026-09-10"
+    },
+    {
+      "id": "gepa",
+      "name": "Ghana Export Promotion Authority (GEPA)",
+      "type": "Government export agency",
+      "what": "Connects international buyers with Ghanaian exporters; provides buyer directories, market research, market-access information, country factsheets and export training. Registering as an exporter with GEPA is a core step of the process.",
+      "contact": "Africa Trade House / Export Trade House, Cruickshank Road, West Ridge, Accra · GA-077-0183",
+      "website": "https://www.gepa.org.gh",
+      "use": "Register as an exporter; ask for buyer connections and the market-access/factsheet resources for your destination.",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "2026 research; website unreachable from verification network on 2026-09-10 - confirm current contacts by phone/visit"
+    },
+    {
+      "id": "ghsa",
+      "name": "Ghana Shippers' Authority (GSA - Shippers)",
+      "type": "Government shipping regulator",
+      "what": "Shipper registration (required before ICUMS transactions), shipping-information services including Exporting to Major Ports and Routes around the World, negotiated charges, complaint resolution, cargo-claims help, and the ShippersApp mobile tool.",
+      "contact": "7th Floor, Ghana Shippers' House, No. 12 Cruickshank Street, Ambassadorial Enclave, West Ridge, Accra · +233 (0) 302 666 915-7 · Toll free 0800 300 055 · Mon-Fri 8:00-6:00 · Branches: Tema, Kumasi, Takoradi, Tamale",
+      "website": "https://shippers.org.gh",
+      "use": "Register as a shipper; use their trade-information pages when choosing routes; complain formally about shipping problems.",
+      "confidence": "green",
+      "lastVerified": "2026-09-10",
+      "source": "shippers.org.gh verified live 2026-09-10"
+    },
+    {
+      "id": "giff",
+      "name": "Ghana Institute of Freight Forwarders (GIFF)",
+      "type": "Professional body for freight forwarders",
+      "what": "The professional home of Ghana's freight forwarders and customs brokers - training, standards and membership. A useful place to check whether an agent is part of the profession.",
+      "contact": "Accra (confirm current address and phone directly)",
+      "website": "",
+      "use": "Ask any shortlisted forwarder for their GIFF membership or GRA licence details.",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "Could not be reached during verification (2026-09-10) - confirm details independently"
+    },
+    {
+      "id": "gea",
+      "name": "Ghana Enterprises Agency (GEA)",
+      "type": "Government enterprise-support agency",
+      "what": "Supports micro, small and medium enterprises - business development services, capacity building and access-to-market programmes.",
+      "contact": "Accra (confirm current contacts on the website)",
+      "website": "https://gea.gov.gh",
+      "use": "MSE-level exporters: ask about export-readiness support programmes.",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "Not verified during this session - confirm on the website"
+    },
+    {
+      "id": "gexim",
+      "name": "Ghana EXIM Bank (Ghana Export-Import Bank)",
+      "type": "Development/export finance bank",
+      "what": "State export-import bank providing financing solutions for Ghanaian exporters and export-oriented businesses.",
+      "contact": "Accra (confirm current contacts on the website)",
+      "website": "https://www.eximbank.gov.gh",
+      "use": "Explore export finance for production, equipment or working capital (Export Readiness item: finance).",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "Not verified during this session - confirm on the website"
+    },
+    {
+      "id": "fz",
+      "name": "Ghana Free Zones Authority (GFZA)",
+      "type": "Government investment authority",
+      "what": "Administers the free-zones programme for export-oriented manufacturing and services (minimum export requirements apply).",
+      "contact": "Accra (confirm current contacts on the website)",
+      "website": "https://fz.gov.gh",
+      "use": "Processors setting up export-oriented facilities may explore free-zones incentives.",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "Not verified during this session - confirm on the website"
+    },
+    {
+      "id": "gncci",
+      "name": "Ghana National Chamber of Commerce & Industry (GNCCI)",
+      "type": "Business chamber",
+      "what": "Business networking, trade missions and business-information services for Ghanaian companies.",
+      "contact": "Accra (confirm current contacts by phone)",
+      "website": "",
+      "use": "Alternative networking channel for buyer connections.",
+      "confidence": "yellow",
+      "lastVerified": "2026-09-10",
+      "source": "Website could not be reached during verification (2026-09-10)"
+    },
+    {
+      "id": "embassies",
+      "name": "Embassy & High Commission commercial sections in Accra",
+      "type": "Foreign-government trade channel",
+      "what": "Destination countries' embassies maintain trade/commercial sections that point exporters to their import regulations, buyer networks and trade events.",
+      "contact": "Accra - contact the embassy of YOUR destination country",
+      "website": "",
+      "use": "Ask specifically: current import conditions for your product, relevant importers/distributors, upcoming trade fairs in their market.",
+      "confidence": "green",
+      "lastVerified": "2026-09-10",
+      "source": "Standard trade practice; specific embassy contacts vary - find the embassy of your destination in Accra"
+    }
+  ],
+  "tradeFairs": [
+    {
+      "id": "gise",
+      "name": "Ghana Industrial Summit & Exhibition (GISE)",
+      "focus": "Ghana industry - networking, exhibition, trade opportunities (AGI event)",
+      "place": "Accra, Ghana",
+      "when": "2026 edition: 15-17 September 2026, Underbridge Annex, East Legon (as published by AGI)",
+      "website": "https://agighana.org",
+      "confidence": "green",
+      "note": "Domestic first step: meet Ghanaian processors, packagers and logistics providers face-to-face."
+    },
+    {
+      "id": "gulfood",
+      "name": "Gulfood",
+      "focus": "Food & beverage - one of the world's largest food trade shows",
+      "place": "Dubai World Trade Centre, UAE",
+      "when": "Annually (typically February) - confirm the current edition dates",
+      "website": "https://www.gulfood.com",
+      "confidence": "yellow",
+      "note": "Strong Gulf/African buyer base; meet UAE/Saudi/importers directly."
+    },
+    {
+      "id": "fruitlogistica",
+      "name": "Fruit Logistica Berlin",
+      "focus": "Fresh produce trade - the leading global fresh fruit & vegetable fair",
+      "place": "Berlin, Germany",
+      "when": "Annually (typically February) - confirm current dates",
+      "website": "https://www.fruitlogistica.com",
+      "confidence": "yellow",
+      "note": "THE fair for fresh produce exporters: pineapple, mango, banana, vegetables buyers from all over Europe."
+    },
+    {
+      "id": "anuga",
+      "name": "Anuga",
+      "focus": "Food & beverage retail/foodservice",
+      "place": "Cologne, Germany",
+      "when": "Biennial (odd years, October) - confirm current dates",
+      "website": "https://www.anuga.com",
+      "confidence": "yellow",
+      "note": "Processed foods, spices, packaged products - retail buyers."
+    },
+    {
+      "id": "sial",
+      "name": "SIAL Paris",
+      "focus": "Food innovation & sourcing",
+      "place": "Paris, France",
+      "when": "Biennial (even years, October) - confirm current dates",
+      "website": "https://www.sialparis.fr",
+      "confidence": "yellow",
+      "note": "Large international food sourcing audience."
+    },
+    {
+      "id": "biofach",
+      "name": "BioFach",
+      "focus": "Organic products",
+      "place": "Nuremberg, Germany",
+      "when": "Annually - confirm current dates",
+      "website": "https://biofach.de",
+      "confidence": "yellow",
+      "note": "For certified organic exporters (certification comes first - see your roadmap)."
+    },
+    {
+      "id": "seafoodexpo",
+      "name": "Seafood Expo Global",
+      "focus": "Fish & seafood trade",
+      "place": "Barcelona, Spain",
+      "when": "Annually - confirm current dates",
+      "website": "https://www.seafoodexpo.com/global",
+      "confidence": "yellow",
+      "note": "For approved fish processors - the EU market room in one place."
+    },
+    {
+      "id": "macfrut",
+      "name": "MacFrut",
+      "focus": "Fruit & vegetables supply chain",
+      "place": "Rimini, Italy",
+      "when": "Annually (typically May) - confirm current dates",
+      "website": "https://www.macfrut.com",
+      "confidence": "yellow",
+      "note": "Supply-chain technology and produce buyers."
+    },
+    {
+      "id": "gitf",
+      "name": "Ghana International Trade Fair",
+      "focus": "General trade, Ghana + West Africa buyers",
+      "place": "Trade Fair Centre, La, Accra",
+      "when": "Confirm the current edition on the organisers' channels",
+      "website": "",
+      "confidence": "yellow",
+      "note": "Domestic/regional exposure - verify the current edition dates before planning."
+    }
+  ],
+  "buyerChannels": [
+    {"channel": "GEPA buyer resources", "how": "Register with GEPA and request buyer-directory/market-access support for your product and destination", "confidence": "yellow"},
+    {"channel": "Trade fairs", "how": "Book a stand or visit the fairs in the calendar - meet importers face-to-face and collect specification sheets", "confidence": "green"},
+    {"channel": "Industry associations (AGI)", "how": "Use the AGI Members Directory and sector groups to find processors, packhouses and export partners", "confidence": "green"},
+    {"channel": "Embassy commercial sections", "how": "Ask the destination country's embassy in Accra for importer lists and import conditions", "confidence": "green"},
+    {"channel": "B2B platforms & importer directories", "how": "Create a professional company profile with product specs, certifications and volumes; respond to verified inquiries only", "confidence": "yellow"},
+    {"channel": "Direct outreach", "how": "Build a one-page spec sheet + price list and contact importers/distributors/ethnic-food distributors of your product directly by email/LinkedIn", "confidence": "yellow"},
+    {"channel": "Supermarket & retailer procurement", "how": "Higher bar: certifications, volumes, year-round supply and audits usually required - approach when you can scale", "confidence": "yellow"},
+    {"channel": "Commodity traders & aggregators", "how": "For bulk commodities (cashew, shea, dried produce) - contract via licensed buying companies", "confidence": "yellow"}
+  ],
+  "agentToolkit": {
+    "collect": [
+      "Company name and registered address",
+      "GRA customs licence / broker registration details",
+      "Port(s) and/or airport(s) served",
+      "Product specialisation (perishables? reefer? agro?)",
+      "Refrigerated-cargo capability and equipment",
+      "Destination routes served",
+      "References from exporters with similar products",
+      "Written quotation with a clear scope of work"
+    ],
+    "questions": [
+      "Which documents will you need from me, and by when?",
+      "Who pays which charge - give me the full cost sheet in writing",
+      "How do you handle reefer set-points and monitoring?",
+      "What happens if my consignment misses the vessel/flight cut-off?",
+      "Who is my single point of contact, and how fast do you respond?",
+      "Can I speak to two exporters you have handled for the last 12 months?"
+    ],
+    "redFlags": [
+      "Quotations only by phone/WhatsApp voice - never in writing",
+      "Requests to pay into a personal mobile-money account",
+      "No physical office or verifiable registration",
+      "Promises to 'handle everything' without listing the documents",
+      "Pressuring you to sign before you can compare a second quotation"
+    ]
+  }
+}

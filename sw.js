@@ -14,6 +14,7 @@ const CORE = [
   './data/destinations.json.js',
   './data/updates.json.js',
   './data/products.json.js',
+  './data/directory.json.js',
   './assets/img/icon-192.png',
   './assets/img/icon-512.png',
   './assets/img/apple-touch-icon.png',
