@@ -51,15 +51,27 @@ GEN.fatal = function(msg){
   if(b){ b.style.display='block'; b.textContent = '⚠️ '+msg; }
 };
 
-/* ---------- router ---------- */
-GEN.show = function(page){
+/* ---------- router (with back trail) ---------- */
+GEN._pageStack = [];
+GEN.show = function(page, noStack){
+  var cur = document.querySelector('section.page.active');
+  if(cur && !noStack){
+    var curId = cur.id.replace('page-','');
+    if(curId !== page){ GEN._pageStack.push(curId); if(GEN._pageStack.length>25) GEN._pageStack.shift(); }
+  }
   var secs = document.querySelectorAll('section.page');
   for(var i=0;i<secs.length;i++){ secs[i].classList.remove('active'); }
   var el = document.getElementById('page-'+page);
   if(el) el.classList.add('active');
   var tabs = document.querySelectorAll('#tabs a');
   for(var t=0;t<tabs.length;t++){ tabs[t].classList.toggle('active', tabs[t].getAttribute('data-page')===page); }
+  var bb = document.getElementById('backbtn');
+  if(bb) bb.style.display = GEN._pageStack.length ? 'inline-block' : 'none';
   window.scrollTo(0,0);
+};
+GEN.back = function(){
+  var prev = GEN._pageStack.pop();
+  GEN.show(prev || 'home', true);
 };
 
 /* ---------- wizard ---------- */
@@ -329,7 +341,10 @@ GEN.renderRoadmap = function(){
 
   /* costs */
   var defs = null;
-  if(!isCustom && p.profitability){ defs = {qty: parseFloat(s.qty)||0, price: (p.profitability.example&&p.profitability.example.buyerPrice)||"", costLines: p.profitability.costLines}; }
+  if(!isCustom && p.profitability){
+    defs = {qty: parseFloat(s.qty)||0, price: (p.profitability.example&&p.profitability.example.buyerPrice)||"", costLines: p.profitability.costLines, unit: "kg", currency: (p.profitability.unit && p.profitability.unit.indexOf("USD")>-1) ? "USD" : "GHS"};
+  }
+  GEN._calcDefaults = defs;
   h += '<div id="gen-calc"></div>';
   h += '<div id="gen-readiness-2"></div>';
   h += '<div class="card"><h3>💰 Banking &amp; export proceeds <span class="flag f-yellow">🟡 confirm with your bank</span></h3>'+
