@@ -506,6 +506,14 @@ GEN.renderMarkets = function(){
     var d = ds[i];
     h += '<div class="card"><h3>'+d.flag+' '+GEN.esc(d.name)+' '+GEN.flagBadge(d.confidence)+'</h3>';
     if(d.tier2sources) h += '<p class="muted" style="margin-bottom:8px">Tier-2 official sources: '+GEN.esc(d.tier2sources.join(" · "))+'</p>';
+    if(d.tier2links && d.tier2links.length){
+      h += '<p style="margin-bottom:8px"><strong>Official authority websites:</strong> ';
+      for(var t2=0;t2<d.tier2links.length;t2++){
+        if(t2>0) h += ' · ';
+        h += '<a href="'+GEN.esc(d.tier2links[t2])+'" target="_blank" rel="noopener">'+GEN.esc(d.tier2links[t2].replace(/^https?:\/\//,'').replace(/\/$/,''))+'</a>';
+      }
+      h += '</p>';
+    }
     h += '<details><summary style="cursor:pointer;font-weight:700;color:var(--green)">View requirement profiles</summary><div style="margin-top:10px">';
     for(var k in d.byClass){
       var b = d.byClass[k];
