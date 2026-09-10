@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Navigator Admin — Add Product</title>
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -15,8 +16,8 @@
   <img src="assets/img/icon-192.png" alt="GEN">
   <div class="brand"><h1>Navigator Admin — Add a Product</h1><p>Research a new product, fill the fields, generate the JSON entry</p></div>
 </header>
-<main>
-  <div class="notice green"><strong>How this works:</strong> when you research a new product (e.g. from official agency sites), fill this form and generate its record. Then paste the generated object into <code>data\products.json</code> (inside the "products" array), run <code>_build\pack_data.py</code>, and push. The live site updates for every user in about a minute.</div>
+<main id="adm-main">
+<div class="notice green"><strong>How this works:</strong> when you research a new product (e.g. from official agency sites), fill this form and generate its record. Then paste the generated object into <code>data\products.json</code> (inside the "products" array), run <code>_build\pack_data.py</code>, and push. The live site updates for every user in about a minute.</div>
 
   <div class="card">
     <div class="grid-2">
@@ -51,6 +52,24 @@
   </div>
 </main>
 <script>
+/* private access gate for the admin tool */
+(function(){
+  var CODE = "GEN2026"; /* must match index.html */
+  var ok = false;
+  try{ ok = localStorage.getItem('gen_pass') === '1'; }catch(e){}
+  if(!ok){
+    var m = location.search.match(/[?&]key=([^&]*)/);
+    if(m && decodeURIComponent(m[1]) === CODE){
+      try{ localStorage.setItem('gen_pass','1'); }catch(e){}
+      ok = true;
+    }
+  }
+  if(!ok){
+    var code = prompt("Private admin tool. Enter the access code:", "");
+    if(code === CODE){ try{ localStorage.setItem('gen_pass','1'); }catch(e){} }
+    else { document.getElementById('adm-main').innerHTML = '<div class="card"><h3>🔒 Locked</h3><p class="muted">Wrong access code. Close this page.</p></div>'; }
+  }
+})();
 window.ADM = {};
 ADM.lines = function(id){
   return document.getElementById(id).value.split(/\n/).map(function(s){return s.trim();}).filter(Boolean);

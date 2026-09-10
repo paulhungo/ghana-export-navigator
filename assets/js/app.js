@@ -698,10 +698,32 @@ GEN.printPage = function(){
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded', function(){
   window.addEventListener('hashchange', function(){
+    if(!window.GEN_unlocked) return;
     var pg = (location.hash||"#home").replace('#','');
     if(document.getElementById('page-'+pg)) GEN.show(pg);
   });
+  var main = document.querySelector('main');
+  var gate = document.getElementById('gate');
+  if(gate){
+    main.style.display = 'none';
+    gate.style.display = 'flex';
+    var stored = null;
+    try{ stored = localStorage.getItem('gen_pass'); }catch(e){}
+    var key = (typeof genGateKey === 'function') ? genGateKey() : null;
+    var ok = false;
+    if(key !== null){
+      ok = genTryUnlock(key);
+      if(!ok){
+        var ge = document.getElementById('gate-err');
+        if(ge){ ge.style.display='block'; ge.textContent='Wrong access code in the link.'; }
+      }
+    } else if(stored === '1'){
+      ok = genTryUnlock(window.GEN_ACCESS_CODE);
+    }
+    if(!ok) return; /* stays locked */
+  } else {
+    GEN.init();
+  }
   var pg0 = (location.hash||"#home").replace('#','');
   if(document.getElementById('page-'+pg0)) GEN.show(pg0);
-  GEN.init();
 });

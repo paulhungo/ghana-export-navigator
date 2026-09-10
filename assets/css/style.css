@@ -139,6 +139,16 @@ footer strong{color:var(--gold2)}
 .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:12px 20px;border-radius:12px;display:none;z-index:99;box-shadow:var(--shadow)}
 .lang-note{font-size:.75rem;color:var(--ink2);margin-top:4px}
 
+/* ---------- private access gate ---------- */
+.gate{position:fixed;inset:0;background:linear-gradient(160deg,var(--green),var(--green2));z-index:200;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.gate img{width:88px;height:88px;border-radius:20px;background:#fff;padding:6px;margin-bottom:14px}
+.gate h2{color:#fff;font-family:Georgia,serif;margin-bottom:6px}
+.gate p{color:var(--gold2);max-width:420px}
+.gate input{margin-top:16px;padding:13px 16px;border:none;border-radius:10px;font-size:1.05rem;width:260px;text-align:center}
+.gate button{margin-top:10px;background:var(--gold);color:#3d2f00;border:none;border-radius:10px;padding:12px 30px;font-size:1rem;font-weight:700;cursor:pointer}
+.gate .gate-err{color:#ffd7d2;font-weight:700;margin-top:10px}
+.gate .gate-note{color:#cfe3d7;font-size:.8rem;margin-top:18px;opacity:.85}
+
 /* ---------- print: office pack ---------- */
 @media print{
   body{background:#fff;font-size:12pt}

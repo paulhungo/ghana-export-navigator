@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghana Agricultural Export Navigator</title>
 <meta name="description" content="Tell us your product, form, quantity and destination - receive your complete Ghana agricultural export roadmap: registrations, regulators, certificates, packaging, route, documents, costs and profit.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -40,6 +41,16 @@
   <a href="#updates" data-page="updates">🔔 Regulation Updates</a>
   <a href="#trust" data-page="trust">🛡️ Trust &amp; Scam Alert</a>
 </nav>
+
+<div class="gate" id="gate" style="display:none">
+  <img src="assets/img/icon-192.png" alt="">
+  <h2>Private Platform</h2>
+  <p>This is a private website. Enter the access code to continue.</p>
+  <input type="password" id="gate-code" placeholder="Access code" autocomplete="off">
+  <button onclick="GEN.tryUnlock()">Unlock</button>
+  <p class="gate-err" id="gate-err" style="display:none">Wrong access code.</p>
+  <p class="gate-note">Access is by invitation only. Contact the owner for the code.</p>
+</div>
 
 <div class="banner-err" id="errbanner">⚠️ A page error occurred. Please reload. If it persists, contact the administrator.</div>
 
@@ -313,7 +324,23 @@ window.addEventListener('error', function(e){
   var b=document.getElementById('errbanner');
   if(b){b.style.display='block';b.textContent='⚠️ Page error: '+(e.message||e);}
 });
-/* version poll (auto-update like the CoS platform) */
+/* ---------- PRIVATE ACCESS GATE ---------- */
+window.GEN_ACCESS_CODE = "GEN2026"; /* Paul: change this to your own code and republish */
+window.GEN_unlocked = false;
+function genGateKey(){ var m = location.search.match(/[?&]key=([^&]*)/); return m ? decodeURIComponent(m[1]) : null; }
+function genTryUnlock(code){
+  if(code === window.GEN_ACCESS_CODE){
+    try{ localStorage.setItem('gen_pass','1'); }catch(e){}
+    window.GEN_unlocked = true;
+    var g = document.getElementById('gate'); if(g) g.style.display='none';
+    var m = document.querySelector('main'); if(m) m.style.display='';
+    GEN.init();
+    return true;
+  }
+  return false;
+}
+window.GEN_tryUnlock = genTryUnlock;
+/* version poll (auto-update) */
 setInterval(function(){
   if(!location.href.startsWith('http')) return;
   fetch('version.json?nocache='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
