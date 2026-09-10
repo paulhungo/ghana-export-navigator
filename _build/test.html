@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>GEN test</title>
+<link rel="stylesheet" href="../assets/css/style.css"></head>
+<body>
+<div class="banner-err" id="errbanner"></div>
+<main>
+<div id="wizard"></div><div id="roadmap-holder"></div><div id="products-grid"></div><div id="agencies-holder"></div><div id="markets-holder"></div><div id="buyer-types-holder"></div><div id="updates-holder"></div><div id="tools-holder"></div><div id="docs-holder"></div><select id="doc-product-select" onchange="GEN.renderDocChecklist()"></select>
+</main>
+<script>
+document.body.setAttribute('data-js','alive');
+window.addEventListener('error',function(e){window.__genErrors.push(String(e.message||e));var b=document.getElementById('errbanner');b.style.display='block';b.textContent='ERR: '+(e.message||e);});
+window.__genErrors=[];
+</script>
+<script src="../data/agencies.json.js"></script>
+<script src="../data/destinations.json.js"></script>
+<script src="../data/updates.json.js"></script>
+<script src="../data/products.json.js"></script>
+<script src="../assets/js/stages.js"></script>
+<script src="../assets/js/tools.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="boot-marker.js"></script>
+<script>
+var tries = 0;
+var iv = setInterval(function(){
+  tries++;
+  if(window.GEN && GEN._agenciesById && GEN._agenciesById.orc && window.GEN_PRODUCTS){
+    clearInterval(iv);
+    runTests();
+  } else if(tries > 120){
+    clearInterval(iv);
+    var b=document.getElementById('errbanner');
+    b.style.display='block'; b.textContent='ERR: engine never booted';
+  }
+}, 50);
+function runTests(){
+  var stepName = "start";
+  function step(n, fn){ stepName = n; try{ fn(); }catch(e){ var inner=(e&&e.stack)?e.stack.split("\n").slice(0,5).join(" || "):""; throw new Error("["+n+"] "+(e&&e.message)+" :: "+inner); } }
+  try{
+    step("init", function(){ GEN.init(); });
+    step("gen-pineapple", function(){ GEN.wiz.data = {productId:"pineapple", productName:"Pineapple", category:"fresh_plant", formId:"fresh", formName:"Fresh pineapple", qty:"5000", unit:"kg", destId:"uk", buyer:"need", transport:"auto"}; GEN.generate(); });
+    step("gen-custom", function(){ GEN.wiz.data = {productId:"__custom", productName:"Snails", category:"animal", formId:null, formName:"Snails", qty:"200", unit:"kg", destId:"eu", buyer:"need", transport:"sea"}; GEN.generate(); });
+    step("gen-coconut", function(){ GEN.wiz.data = {productId:"coconut", productName:"Coconut", category:"tree_crop", formId:"oil", formName:"Virgin coconut oil", qty:"3000", unit:"kg", destId:"uae", buyer:"have", transport:"sea"}; GEN.generate(); });
+    step("gen-fish", function(){ GEN.wiz.data = {productId:"fish", productName:"Fish", category:"fish", formId:"frozen", formName:"Frozen fish/shellfish", qty:"10000", unit:"kg", destId:"eu", buyer:"have", transport:"sea"}; GEN.generate(); });
+    step("docs", function(){ GEN.renderDocChecklist(); document.getElementById('doc-product-select').value = "pineapple"; GEN.renderDocChecklist(); });
+    step("calc", function(){ document.getElementById('c-qty').value = 1000; document.getElementById('c-price').value = 1.20; document.getElementById('c-lines').querySelector('.c-cost').value = 950; GEN.runCalc(); });
+    step("rejection", function(){ GEN.renderRejectionSolver('gen-rejection'); });
+    stepName = "done";
+    document.title = "TESTDONE";
+    window.__testDone = true;
+  }catch(e){
+    var st = (e && e.stack) ? e.stack.split("\n").slice(0,4).join(" | ") : "";
+    window.__genErrors.push("TEST: "+(e && e.message));
+    var b=document.getElementById('errbanner');
+    b.style.display='block'; b.textContent='ERR: '+(e && e.message)+' :: '+st;
+  }
+}
+</script>
+</body></html>

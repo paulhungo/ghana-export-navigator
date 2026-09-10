@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigator Admin — Add Product</title>
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .mono{font-family:Consolas,monospace;font-size:.8rem;width:100%;height:260px;border:2px solid var(--line);border-radius:10px;padding:10px}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <img src="assets/img/icon-192.png" alt="GEN">
+  <div class="brand"><h1>Navigator Admin — Add a Product</h1><p>Research a new product, fill the fields, generate the JSON entry</p></div>
+</header>
+<main>
+  <div class="notice green"><strong>How this works:</strong> when you research a new product (e.g. from official agency sites), fill this form and generate its record. Then paste the generated object into <code>data\products.json</code> (inside the "products" array), run <code>_build\pack_data.py</code>, and push. The live site updates for every user in about a minute.</div>
+
+  <div class="card">
+    <div class="grid-2">
+      <div><label>Product name</label><input class="wiz-input" id="a-name" placeholder="e.g. Yam"></div>
+      <div><label>Icon (emoji)</label><input class="wiz-input" id="a-icon" placeholder="e.g. 🍠" value="📦"></div>
+      <div><label>Category</label>
+        <select class="wiz-input" id="a-cat">
+          <option value="fresh_plant">fresh_plant — Fresh agricultural / plant produce</option>
+          <option value="processed">processed — Processed / prepackaged food</option>
+          <option value="tree_crop">tree_crop — Tree crops (TCDA)</option>
+          <option value="animal">animal — Live animals / animal products</option>
+          <option value="fish">fish — Fish / fishery products</option>
+          <option value="cocoa">cocoa — Cocoa</option>
+          <option value="special">special — Special products</option>
+        </select></div>
+      <div><label>HS code (indicative — confirm)</label><input class="wiz-input" id="a-hs" placeholder="e.g. 0714.20"></div>
+    </div>
+    <div style="margin-top:10px"><label>Forms (one per line — "name | note")</label>
+      <textarea class="wiz-input" id="a-forms" rows="4" placeholder="Fresh yam | Plant-health/food-safety pathway (PPRSD + FDA)&#10;Dried yam chips | Processed-food pathway (FDA)"></textarea></div>
+    <div style="margin-top:10px"><label>Certificates (one per line)</label>
+      <textarea class="wiz-input" id="a-certs" rows="3" placeholder="Phytosanitary certificate (PPRSD)&#10;FDA export/clearance permit&#10;Certificate of origin"></textarea></div>
+    <div style="margin-top:10px"><label>Packaging requirements (one per line)</label>
+      <textarea class="wiz-input" id="a-pack" rows="3" placeholder="Supplier information and country of supply&#10;Net weight&#10;Product batch"></textarea></div>
+    <div style="margin-top:10px"><label>Storage requirements (one per line)</label>
+      <textarea class="wiz-input" id="a-store" rows="3" placeholder="Licensed packhouse/storage facility&#10;Cold-chain assessed"></textarea></div>
+    <div style="margin-top:10px"><label>Buyer types (comma separated)</label><input class="wiz-input" id="a-buyers" placeholder="Importer, Distributor, Wholesaler"></div>
+    <div style="margin-top:10px"><label>Destination notes (format: destinationId: note — one per line; uk, eu, usa, uae, ecowas, china...)</label>
+      <textarea class="wiz-input" id="a-dest" rows="3" placeholder="eu: Confirm EU MRLs before contracting&#10;uk: Confirm UK plant-health rules"></textarea></div>
+    <div class="btn-row"><button class="btn" onclick="ADM.generate()">Generate JSON record</button><button class="btn gold" onclick="ADM.download()">⬇ Download products.json fragment</button></div>
+    <textarea class="mono" id="a-out" readonly placeholder="Generated JSON appears here..."></textarea>
+    <p class="muted" style="margin-top:8px">Paste the object as a new item inside the "products" array in <strong>data\products.json</strong> (add a comma after the previous product's closing brace first). Then run <code>python _build\pack_data.py</code> and push to GitHub.</p>
+  </div>
+</main>
+<script>
+window.ADM = {};
+ADM.lines = function(id){
+  return document.getElementById(id).value.split(/\n/).map(function(s){return s.trim();}).filter(Boolean);
+};
+ADM.generate = function(){
+  var name = document.getElementById('a-name').value.trim();
+  if(!name){ alert("Product name is required."); return; }
+  var forms = ADM.lines('a-forms').map(function(l){
+    var p = l.split("|");
+    return {id: p[0].toLowerCase().replace(/[^a-z0-9]+/g,"_").slice(0,24), name: p[0].trim(), note: (p[1]||"Confirm the requirement with the relevant agency").trim()};
+  });
+  if(!forms.length) forms = [{id:"standard", name:"Standard form", note:"Confirm the requirement with the relevant agency."}];
+  var destNotes = {};
+  ADM.lines('a-dest').forEach(function(l){
+    var i = l.indexOf(":");
+    if(i>0) destNotes[l.slice(0,i).trim()] = l.slice(i+1).trim();
+  });
+  var buyers = document.getElementById('a-buyers').value.split(",").map(function(s){return s.trim();}).filter(Boolean);
+  var obj = {
+    id: name.toLowerCase().replace(/[^a-z0-9]+/g,"_").slice(0,24),
+    name: name,
+    icon: document.getElementById('a-icon').value.trim() || "📦",
+    category: document.getElementById('a-cat').value,
+    forms: forms,
+    hs: document.getElementById('a-hs').value.trim() || "Confirm with your clearing agent",
+    certificates: ADM.lines('a-certs'),
+    packaging: ADM.lines('a-pack'),
+    storage: ADM.lines('a-store'),
+    temperature: "Confirm with buyer and shipper",
+    transport: ["Confirm with freight forwarder"],
+    ports: ["Tema Port", "Kotoka International Airport"],
+    buyerTypes: buyers.length ? buyers : ["Importer","Distributor"],
+    rejectionReasons: ["Wrong documentation","Residue/contaminant limits","Wrong labelling","Temperature abuse"],
+    profitability: {unit:"USD per kg", example:{quantityKg:1000, buyerPrice:0}, costLines:["Production","Processing","Packaging","Certifications","Transport","Freight","Agent"]},
+    destinationNotes: destNotes,
+    lastVerified: new Date().toISOString().slice(0,10),
+    confidence: "yellow"
+  };
+  document.getElementById('a-out').value = JSON.stringify(obj, null, 2);
+};
+ADM.download = function(){
+  var txt = document.getElementById('a-out').value;
+  if(!txt){ ADM.generate(); txt = document.getElementById('a-out').value; }
+  var blob = new Blob([txt], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "product-fragment.json";
+  a.click();
+};
+</script>
+</body>
+</html>

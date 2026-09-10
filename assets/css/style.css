@@ -1,0 +1,155 @@
+/* Ghana Agricultural Export Navigator — deep green + gold */
+:root{
+  --green:#0B4D2F; --green2:#0F6B41; --green3:#E7F2EC;
+  --gold:#C9A227; --gold2:#F3E4B8;
+  --ink:#1c2b24; --ink2:#51625a; --paper:#ffffff; --bg:#f4f6f4;
+  --line:#dbe4de; --red:#c0392b; --redbg:#fdeceb; --amber:#b7791f; --amberbg:#fdf6e3;
+  --ok:#1d7a4f; --okbg:#e9f7f0; --radius:14px;
+  --shadow:0 2px 10px rgba(20,40,30,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.5}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;color:var(--green)}
+img{max-width:100%}
+button{font-family:inherit}
+a{color:var(--green2)}
+
+/* ---------- top bar ---------- */
+.topbar{background:linear-gradient(135deg,var(--green) 0%,var(--green2) 100%);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.topbar img{width:44px;height:44px;border-radius:10px;background:#fff;padding:2px}
+.brand h1{font-size:1.05rem;color:#fff;font-family:Georgia,serif;line-height:1.2}
+.brand p{font-size:.72rem;color:var(--gold2)}
+.top-actions{margin-left:auto;display:flex;gap:8px}
+.icon-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:.85rem}
+.icon-btn:hover{background:rgba(255,255,255,.28)}
+
+/* ---------- nav ---------- */
+nav.tabs{display:flex;gap:6px;overflow-x:auto;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 10px;position:sticky;top:72px;z-index:40}
+nav.tabs a{white-space:nowrap;text-decoration:none;color:var(--ink2);font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid transparent}
+nav.tabs a:hover{background:var(--green3)}
+nav.tabs a.active{background:var(--green);color:#fff}
+
+main{max-width:1080px;margin:0 auto;padding:18px 14px 80px}
+section.page{display:none}
+section.page.active{display:block}
+.page-title{font-size:1.5rem;margin:8px 0 4px}
+.page-sub{color:var(--ink2);margin-bottom:16px}
+
+/* ---------- cards & badges ---------- */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+.card h3{margin-bottom:8px;color:var(--green)}
+.muted{color:var(--ink2)}
+.flag{display:inline-block;font-size:.75rem;font-weight:700;border-radius:999px;padding:3px 10px;margin-left:6px;vertical-align:middle}
+.f-green{background:var(--okbg);color:var(--ok)}
+.f-yellow{background:var(--amberbg);color:var(--amber)}
+.f-red{background:var(--redbg);color:var(--red)}
+.verify-line{font-size:.78rem;color:var(--ink2);margin-top:8px;border-top:1px dashed var(--line);padding-top:6px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;background:var(--green);color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.btn:hover{background:var(--green2)}
+.btn.gold{background:var(--gold);color:#3d2f00}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+.btn.small{padding:8px 14px;font-size:.85rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+/* ---------- wizard ---------- */
+.wizard{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);padding:20px}
+.wiz-progress{display:flex;gap:6px;margin-bottom:16px}
+.wiz-progress span{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.wiz-progress span.done{background:var(--gold)}
+.wiz-progress span.cur{background:var(--green)}
+.wiz-q{font-size:1.25rem;font-family:Georgia,serif;color:var(--green);margin-bottom:4px}
+.wiz-hint{color:var(--ink2);font-size:.9rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;font-size:.95rem;font-weight:600;color:var(--ink)}
+.chip:hover{border-color:var(--green2);background:var(--green3)}
+.chip.sel{background:var(--green);border-color:var(--green);color:#fff}
+.chip.gold{border-color:var(--gold)}
+input.wiz-input,select.wiz-input,textarea.wiz-input{width:100%;padding:12px;border:2px solid var(--line);border-radius:10px;font-size:1rem;margin-top:6px}
+input:focus,select:focus{outline:none;border-color:var(--green2)}
+.wiz-nav{display:flex;justify-content:space-between;margin-top:18px}
+.error-msg{color:var(--red);font-size:.85rem;margin-top:8px;display:none}
+
+/* ---------- roadmap ---------- */
+.hero-roadmap{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.hero-roadmap h2{color:#fff;margin-bottom:2px}
+.hero-roadmap .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.hero-roadmap .facts div{background:rgba(255,255,255,.12);border-radius:10px;padding:6px 12px;font-size:.85rem}
+.roadmap-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.roadmap-grid{grid-template-columns:1fr 1fr}}
+.check{list-style:none}
+.check li{padding:9px 10px;border-bottom:1px solid var(--line);display:flex;gap:9px;align-items:flex-start}
+.check li:last-child{border-bottom:none}
+.check li::before{content:"☑";color:var(--ok);font-weight:700}
+.route{list-style:none;padding-left:0}
+.route li{position:relative;padding:8px 0 8px 34px}
+.route li::before{content:"";position:absolute;left:10px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.route li:not(:last-child)::after{content:"";position:absolute;left:14px;top:20px;bottom:-6px;width:2px;background:var(--gold2)}
+
+/* ---------- stage cards ---------- */
+.stage{border-left:6px solid var(--gold);position:relative}
+.stage-no{position:absolute;top:-14px;left:-6px;background:var(--gold);color:#3d2f00;font-weight:800;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;box-shadow:var(--shadow)}
+.stage .stage-no{position:absolute;top:-14px;left:-6px;background:var(--gold);color:#3d2f00;font-weight:800;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+.stage h3{margin-top:6px;padding-left:34px}
+.stage dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin-top:10px;font-size:.95rem}
+.stage dt{font-weight:700;color:var(--green);white-space:nowrap}
+.stage dd{color:var(--ink2)}
+.stage ul{margin:4px 0 4px 4px;padding-left:18px}
+.stage ul li{margin-bottom:3px}
+.stage .what-next{background:var(--green3);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:.95rem}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--green3);color:var(--green);font-size:.85rem}
+
+/* ---------- calculator ---------- */
+.calc-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:700px){.calc-grid{grid-template-columns:1fr 1fr}}
+.calc-grid label{font-size:.85rem;font-weight:700;color:var(--green)}
+.calc-grid input{width:100%;padding:10px;border:2px solid var(--line);border-radius:10px;font-size:1rem}
+.result-box{background:var(--green3);border-radius:12px;padding:14px;margin-top:12px;font-size:1.05rem}
+.result-box .big{font-size:1.5rem;font-family:Georgia,serif;color:var(--green)}
+.result-box .neg{color:var(--red)}
+
+/* ---------- readiness ---------- */
+.ready-bar{height:26px;background:var(--line);border-radius:13px;overflow:hidden;margin:10px 0}
+.ready-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--amber),var(--ok));width:0%;transition:width .6s}
+.ready-item{display:flex;gap:10px;align-items:center;padding:9px;border-bottom:1px solid var(--line)}
+.ready-item input{width:22px;height:22px;accent-color:var(--green)}
+.ready-item label{flex:1;cursor:pointer}
+
+/* ---------- misc ---------- */
+.grid-2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:800px){.grid-2{grid-template-columns:1fr 1fr}}
+.grid-3{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.pill{display:inline-block;background:var(--green3);color:var(--green);border-radius:999px;padding:4px 12px;font-size:.8rem;font-weight:700;margin:2px 3px 2px 0}
+.pill.gold{background:var(--gold2);color:#6b5200}
+.searchbox{width:100%;padding:14px;border:2px solid var(--line);border-radius:12px;font-size:1.05rem}
+.notice{border-left:5px solid var(--gold);background:var(--amberbg);padding:12px 14px;border-radius:10px;margin-bottom:12px;font-size:.95rem}
+.notice.red{border-left-color:var(--red);background:var(--redbg)}
+.notice.green{border-left-color:var(--ok);background:var(--okbg)}
+footer{background:var(--green);color:#cfe3d7;text-align:center;padding:20px 14px;font-size:.85rem}
+footer strong{color:var(--gold2)}
+.banner-err{display:none;background:var(--redbg);color:var(--red);padding:10px 14px;border-radius:10px;margin:10px 0;font-weight:700}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:12px 20px;border-radius:12px;display:none;z-index:99;box-shadow:var(--shadow)}
+.lang-note{font-size:.75rem;color:var(--ink2);margin-top:4px}
+
+/* ---------- print: office pack ---------- */
+@media print{
+  body{background:#fff;font-size:12pt}
+  .topbar,nav.tabs,.wiz-nav,.btn,.btn-row,.no-print,footer,.toast{display:none!important}
+  main{max-width:none;padding:0}
+  section.page{display:none!important}
+  section.print-target{display:block!important}
+  .card{box-shadow:none;border:1px solid #999;break-inside:avoid;margin-bottom:10pt}
+  .hero-roadmap{background:#fff!important;color:#000!important;border:2pt solid var(--green)}
+  .hero-roadmap h2{color:#000}
+  .hero-roadmap .facts div{background:#eee;color:#000}
+  .banner-err{display:none!important}
+  h2,h3{color:#000!important}
+}

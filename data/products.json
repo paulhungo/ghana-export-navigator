@@ -1,0 +1,374 @@
+{
+  "_meta": {
+    "name": "Ghana Agricultural Export Navigator - Products Database",
+    "lastVerifiedRun": "2026-09-10",
+    "legend": "HS codes are INDICATIVE and must be confirmed with your clearing agent or the Ghana Revenue Authority tariff. All specifics marked with confirm flags must be verified with the named agency before a live shipment."
+  },
+  "categories": {
+    "fresh_plant": {
+      "name": "Fresh agricultural / plant produce",
+      "regulators": ["PPRSD (phytosanitary)", "FDA (export clearance)", "GRA Customs"],
+      "coreCerts": ["Phytosanitary certificate (PPRSD)", "FDA export/clearance permit"],
+      "storage": "Licensed packhouse/storage facility (FDA requires the storage facility supplying fresh produce to be licensed)",
+      "chain": "Farm, Packhouse, PPRSD inspection, FDA permit, Customs (ICUMS), Port/Airport, Shipment, Destination"
+    },
+    "processed": {
+      "name": "Processed / prepackaged food",
+      "regulators": ["FDA (prepackaged-foods guideline - registration and clearance)", "GSA (standards/testing where applicable)", "GRA Customs"],
+      "coreCerts": ["FDA product registration where applicable", "FDA export/clearance permit", "GSA certification where applicable", "Certificate of analysis where required"],
+      "storage": "Appropriate warehouse; FDA processing/licensing requirements apply to the facility",
+      "chain": "Production, Quality control, Pack, FDA compliance, Permit, Customs (ICUMS), Port/Airport, Shipment, Destination"
+    },
+    "animal": {
+      "name": "Live animals / animal products",
+      "regulators": ["VSD (registration, permits, health certificates)", "FDA (as applicable)", "GRA Customs"],
+      "coreCerts": ["VSD veterinary permit/registration", "Veterinary health certificate", "Destination import permit where required"],
+      "storage": "Appropriate holding/cold facilities per VSD and FDA requirements",
+      "chain": "Producer, VSD inspection/testing, Certificates, Customs (ICUMS), Port/Airport, Shipment, Destination veterinary checks"
+    },
+    "fish": {
+      "name": "Fish / fishery products",
+      "regulators": ["GSA Fish Inspection (exporter registration, approved establishments, consignment inspection)", "FDA (clearance incl. frozen products)", "Fisheries authority (catch matters)", "VSD (aquatic animal health where applicable)", "GRA Customs"],
+      "coreCerts": ["GSA health certificate", "FDA export clearance", "Catch/traceability documentation where applicable"],
+      "storage": "Approved cold store required for EU-oriented exports; ice plants/landing sites inspected by GSA",
+      "chain": "Landing site, Approved processing plant, GSA inspection, FDA clearance, Customs (ICUMS), Port/Airport, Reefer shipment, Destination"
+    },
+    "tree_crop": {
+      "name": "Tree crops (TCDA-regulated)",
+      "regulators": ["TCDA (registration, licensing, EXPORT PERMIT - mandatory since 1 Apr 2026)", "PPRSD (phytosanitary, fresh plant material)", "FDA (processed forms)", "GRA Customs"],
+      "coreCerts": ["Valid written TCDA export permit", "Phytosanitary certificate where applicable", "FDA clearance for processed forms"],
+      "storage": "TCDA exporter requirements can include warehousing capacity - confirm your category requirements",
+      "chain": "Farm, Processing (if any), TCDA permit, PPRSD/FDA as applicable, Customs (ICUMS), Port/Airport, Shipment, Destination"
+    },
+    "cocoa": {
+      "name": "Cocoa",
+      "regulators": ["COCOBOD (cocoa sector rules and licensing)", "GRA Customs"],
+      "coreCerts": ["COCOBOD licensing/quality requirements"],
+      "storage": "COCOBOD system requirements apply",
+      "chain": "Farm, Licensed buying, COCOBOD quality system, Customs, Port, Shipment, Destination"
+    },
+    "special": {
+      "name": "Special products (honey, seeds, organic, wildlife-related)",
+      "regulators": ["Depends on the product form: FDA for food products, VSD for animal-origin items, PPRSD for seeds/plants", "GRA Customs"],
+      "coreCerts": ["Varies by product - the roadmap lists your category basics and flags what to confirm"],
+      "storage": "Depends on the product",
+      "chain": "Producer, Product regulator, Certificates, Customs, Port/Airport, Shipment, Destination"
+    }
+  },
+  "products": [
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "icon": "🍍",
+      "category": "fresh_plant",
+      "forms": [
+        {"id": "fresh", "name": "Fresh pineapple", "note": "Main fresh-fruit pathway: PPRSD + FDA fresh-produce guideline"},
+        {"id": "juice", "name": "Pineapple juice (processed)", "note": "Switches to the processed/prepackaged-food pathway - FDA requirements become much more extensive"},
+        {"id": "pulp", "name": "Fruit pulp (processed)", "note": "Processed-food pathway"}
+      ],
+      "hs": "0804.30 (indicative - confirm)",
+      "certificates": ["Phytosanitary certificate (PPRSD)", "FDA export/clearance permit (fresh produce guideline)", "Certificate of origin", "Destination-required certificates"],
+      "packaging": ["Product name", "Supplier information and country of supply", "Net weight", "Product batch", "Storage temperature", "Handling instructions", "Grade/class where applicable", "Traceability information"],
+      "storage": ["Licensed packhouse/storage facility", "Cooling/cold-chain assessed for the journey", "Temperature records kept"],
+      "temperature": "Cool chain required for sea freight (reefer); confirm exact set-point with your buyer and shipper",
+      "transport": ["Sea (reefer container) for larger volumes", "Air for small/high-value/fast orders"],
+      "ports": ["Tema Port (sea)", "Kotoka International Airport (air)"],
+      "buyerTypes": ["Importer", "Distributor", "Supermarket", "Processor", "Wholesaler"],
+      "rejectionReasons": ["Pest infestation found at inspection", "Pesticide residue above limit", "Wrong or missing labelling", "Temperature abuse in transit", "Short remaining shelf life", "Physical damage / bruising", "Wrong documentation"],
+      "profitability": {
+        "unit": "USD per kg",
+        "example": {"quantityKg": 1000, "buyerPrice": 1.20, "typicalTotalCost": 950, "note": "Worked example: revenue US$1,200 - costs US$950 = US$250 profit (20.83% margin). If costs rise to US$1,150 the same crop earns only US$50 (4.17%). Use the calculator with YOUR real numbers."},
+        "costLines": ["Farm production", "Aggregation", "Sorting/grading", "Packaging + labels", "Cold storage", "Labour", "Lab tests", "Certifications (PPRSD/FDA)", "Transport to port", "Clearing agent", "Port/container/reefer charges", "Freight", "Insurance", "Bank charges", "Commission", "Spoilage/rejection allowance"]
+      },
+      "destinationNotes": {
+        "uk": "UK plant-health requirements + UK marketing standards; confirm current rules on gov.uk before contracting",
+        "eu": "EU marketing standards for fresh fruit/vegetables + EU pesticide MRLs; confirm on EU official systems",
+        "usa": "APHIS plant-health conditions + US FDA food rules; confirm before contracting",
+        "uae": "UAE plant-quarantine + food-safety rules; confirm before contracting"
+      },
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "pepper",
+      "name": "Pepper (chili)",
+      "icon": "🌶️",
+      "category": "fresh_plant",
+      "forms": [
+        {"id": "fresh", "name": "Fresh pepper", "note": "PPRSD + FDA fresh-produce pathway"},
+        {"id": "dried", "name": "Dried pepper", "note": "Treated as processed food - FDA prepackaged-foods pathway + GSA where applicable"},
+        {"id": "ground", "name": "Ground spice", "note": "Processed-food pathway: FDA registration + labelling; GSA standards may apply"}
+      ],
+      "hs": "0709.60 fresh / 0904.21-22 dried (indicative - confirm)",
+      "certificates": ["Phytosanitary certificate (PPRSD) for fresh", "FDA export/clearance permit", "Certificate of analysis where buyer requires", "Certificate of origin"],
+      "packaging": ["Supplier info + country of supply", "Net weight", "Batch", "Storage temperature (fresh)", "Handling instructions", "For spice: ingredient labelling per destination rules"],
+      "storage": ["Licensed packhouse (fresh)", "Dry, clean warehouse for dried/ground"],
+      "temperature": "Cool chain for fresh; ambient for dried forms",
+      "transport": ["Sea for volume", "Air for fresh premium or small lots"],
+      "ports": ["Tema Port", "Kotoka International Airport"],
+      "buyerTypes": ["Importer", "Ethnic-food distributor", "Wholesaler", "Processor", "Restaurant supply"],
+      "rejectionReasons": ["Pesticide residue above destination limit", "Mould/aflatoxin concerns in dried form", "Pest infestation", "Wrong labelling", "Moisture too high in dried lots", "Missing phytosanitary certificate"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 1000, "buyerPrice": 2.50, "note": "Indicative only - dried premium grades can earn far more. Calculate YOUR numbers."}, "costLines": ["Production", "Harvest labour", "Drying (energy)", "Packaging", "Tests", "Certifications", "Transport", "Agent fees", "Freight", "Spoilage"]},
+      "destinationNotes": {
+        "uk": "Confirm UK pesticide-MRL compliance before planting - residues are a top rejection cause",
+        "eu": "EU MRLs are strict; confirm current increased-control lists that may apply to vegetables from Ghana",
+        "usa": "US FDA/APHIS rules; confirm",
+        "uae": "UAE food-safety rules; confirm"
+      },
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "okra",
+      "name": "Okra",
+      "icon": "🌿",
+      "category": "fresh_plant",
+      "forms": [
+        {"id": "fresh", "name": "Fresh okra", "note": "PPRSD + FDA fresh-produce pathway"},
+        {"id": "dried", "name": "Dried okra", "note": "Processed-food pathway"}
+      ],
+      "hs": "0709.99 (indicative - confirm)",
+      "certificates": ["Phytosanitary certificate (PPRSD)", "FDA export/clearance permit", "Certificate of origin"],
+      "packaging": ["Supplier info + country of supply", "Net weight", "Batch", "Storage temperature", "Handling instructions", "Ventilated packaging appropriate for the crop"],
+      "storage": ["Licensed packhouse", "Cool room - okra is highly perishable"],
+      "temperature": "Cool chain strongly recommended; confirm set-point with buyer",
+      "transport": ["Air freight is common for fresh okra to Europe due to short shelf life"],
+      "ports": ["Kotoka International Airport", "Tema Port (only if buyer accepts sea transit)"],
+      "buyerTypes": ["Ethnic-food distributor", "Importer", "Wholesaler", "Supermarket"],
+      "rejectionReasons": ["Residue above MRL", "Decay/deterioration from heat delay", "Pest signs", "Over-maturity", "Wrong labelling", "Short shelf life on arrival"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 500, "buyerPrice": 2.00, "note": "Indicative only. Air freight eats margins on light, bulky crops - always calculate break-even."}, "costLines": ["Production", "Harvest", "Pre-cooling", "Packaging", "Air freight", "Certifications", "Agent", "Spoilage"]},
+      "destinationNotes": {
+        "uk": "UK plant-health + food-safety rules; confirm",
+        "eu": "EU MRL compliance is critical for okra; check current EU increased-control lists for produce from Ghana",
+        "usa": "Confirm APHIS conditions",
+        "uae": "Confirm UAE rules"
+      },
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "garden_eggs",
+      "name": "Garden eggs",
+      "icon": "🥚",
+      "category": "fresh_plant",
+      "forms": [
+        {"id": "fresh", "name": "Fresh garden eggs", "note": "PPRSD + FDA fresh-produce pathway"}
+      ],
+      "hs": "0709.30 family (indicative - confirm)",
+      "certificates": ["Phytosanitary certificate (PPRSD)", "FDA export/clearance permit", "Certificate of origin"],
+      "packaging": ["Supplier info + country of supply", "Net weight", "Batch", "Storage temperature", "Handling instructions"],
+      "storage": ["Licensed packhouse", "Cool, ventilated storage"],
+      "temperature": "Cool chain recommended; confirm with buyer",
+      "transport": ["Air freight typical for small premium lots", "Sea reefer for accepted shelf-life"],
+      "ports": ["Kotoka International Airport", "Tema Port"],
+      "buyerTypes": ["Ethnic-food distributor", "Importer", "Wholesaler", "Supermarket"],
+      "rejectionReasons": ["Residue above MRL", "Bruising/damage", "Pest signs", "Wrong labelling", "Decay on arrival"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 500, "buyerPrice": 1.80, "note": "Indicative only."}, "costLines": ["Production", "Harvest", "Packaging", "Freight", "Certifications", "Agent", "Spoilage"]},
+      "destinationNotes": {"uk": "Confirm UK plant-health rules", "eu": "Check EU controls for solanaceous produce from Ghana", "usa": "Confirm APHIS conditions", "uae": "Confirm UAE rules"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "cassava",
+      "name": "Cassava",
+      "icon": "🍠",
+      "category": "fresh_plant",
+      "formsNote": "Cassava is several different export products - the FORM changes the regulatory path. Choose carefully.",
+      "forms": [
+        {"id": "fresh", "name": "Fresh cassava", "note": "Plant-health/food-safety pathway (PPRSD + FDA fresh produce)", "hs": "0714.10 (indicative)"},
+        {"id": "dried_chips", "name": "Dried cassava / cassava chips", "note": "Processed agricultural product - FDA processed pathway; moisture/quality specs matter", "hs": "0714 family (indicative)"},
+        {"id": "gari", "name": "Gari", "note": "Processed food - FDA prepackaged-foods pathway + labelling", "hs": "confirm"},
+        {"id": "flour", "name": "Cassava flour", "note": "Processed/prepackaged food - FDA registration + GSA standards where applicable", "hs": "1106.20 (indicative)"},
+        {"id": "starch", "name": "Cassava starch", "note": "Industrial/food ingredient - FDA + GSA + destination rules", "hs": "1108.14 (indicative)"},
+        {"id": "feed", "name": "Cassava-based animal feed", "note": "Potentially different regulatory requirements - confirm with FDA/GSA and destination", "hs": "confirm"}
+      ],
+      "certificates": ["Phytosanitary certificate for fresh form (PPRSD)", "FDA export/clearance permit", "Certificate of analysis for flour/starch where buyer requires", "Certificate of origin"],
+      "packaging": ["For processed forms: full ingredient/prepackaged labelling per destination", "Net weight", "Batch", "Storage conditions", "For fresh: supplier info, country of supply, handling instructions"],
+      "storage": ["Ventilated dry storage (fresh cassava is perishable - process quickly)", "Compliant warehouse for processed forms"],
+      "temperature": "Ambient for processed; minimal shelf life for fresh",
+      "transport": ["Sea (dry container) for dried/processed forms", "Fresh cassava rarely travels far - ECOWAS regional routes common"],
+      "ports": ["Tema Port", "Land border routes for ECOWAS"],
+      "buyerTypes": ["Food processor", "Importer", "Industrial buyer", "Feed manufacturer", "Ethnic-food distributor"],
+      "rejectionReasons": ["Moisture out of spec", "Mould", "Wrong labelling on processed packs", "Contaminants above limits", "Wrong HS classification causing customs delay"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 5000, "buyerPrice": 0.45, "note": "Indicative - low unit prices mean volume and cost control decide profit."}, "costLines": ["Fresh root purchase", "Processing/drying", "Milling", "Packaging", "Tests", "Transport", "Certifications", "Agent", "Freight"]},
+      "destinationNotes": {"uk": "Confirm UK rules per form", "eu": "EU rules per form; starch/flour face food-additive/ingredient rules", "usa": "Confirm FDA(US) rules per form", "ecowas": "Regional market is the natural first step for many cassava forms"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "coconut",
+      "name": "Coconut",
+      "icon": "🥥",
+      "category": "tree_crop",
+      "tcda": true,
+      "tcdaNote": "TCDA PERMIT REQUIRED: from 1 April 2026, exporting coconut (processed or unprocessed) requires a valid written TCDA permit. Register with TCDA first.",
+      "forms": [
+        {"id": "fresh", "name": "Fresh coconut", "note": "TCDA permit + PPRSD pathway"},
+        {"id": "water", "name": "Coconut water (packaged)", "note": "TCDA permit + FDA prepackaged-foods pathway"},
+        {"id": "oil", "name": "Virgin coconut oil", "note": "TCDA permit + FDA processed-food pathway + labelling"},
+        {"id": "desiccated", "name": "Desiccated coconut", "note": "TCDA permit + FDA processed-food pathway"},
+        {"id": "copra", "name": "Copra (dried kernel)", "note": "TCDA permit; industrial buyer pathway"}
+      ],
+      "hs": "0801.11-13 fresh / 1511+ oil / 0801.31 desiccated (indicative - confirm)",
+      "certificates": ["Valid written TCDA export permit (MANDATORY)", "Phytosanitary certificate for fresh forms (PPRSD)", "FDA export/clearance permit (food forms)", "Certificate of origin"],
+      "packaging": ["For food forms: full labelling per destination (ingredients, net weight, batch, best-before)", "For fresh: supplier info, country of supply, net weight, batch, handling"],
+      "storage": ["Dry, ventilated warehouse for whole/copra", "Compliant facility for oil/water (FDA requirements)"],
+      "temperature": "Ambient for most forms; confirm for packaged water/oil",
+      "transport": ["Sea for volume (Tema)", "Air possible for premium packaged products"],
+      "ports": ["Tema Port"],
+      "buyerTypes": ["Importer", "Processor", "Oil refiner", "Wholesaler", "Supermarket"],
+      "rejectionReasons": ["Missing TCDA permit", "Pest signs in fresh nuts", "Mould in copra/desiccated", "Wrong food labelling", "Residue/contaminant limits"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 2000, "buyerPrice": 0.90, "note": "Indicative - value addition (oil/desiccated) usually earns more than raw copra."}, "costLines": ["Raw material", "TCDA permit fees", "Processing", "Packaging", "Certifications", "Transport", "Freight", "Agent"]},
+      "destinationNotes": {"uk": "Confirm UK rules per form", "eu": "Confirm EU rules per form", "usa": "Confirm FDA(US) rules", "uae": "Confirm UAE rules", "china": "GACC registration may be required - verify BEFORE contracting"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "icon": "🥭",
+      "category": "tree_crop",
+      "tcda": true,
+      "tcdaNote": "TCDA PERMIT REQUIRED (1 April 2026 rule covers mango) - plus fresh-fruit regulators.",
+      "forms": [
+        {"id": "fresh", "name": "Fresh mango", "note": "TCDA permit + PPRSD + FDA fresh-produce pathway"},
+        {"id": "dried", "name": "Dried mango", "note": "TCDA permit + FDA processed-food pathway"},
+        {"id": "pulp", "name": "Mango pulp/puree", "note": "TCDA permit + FDA processed-food pathway"}
+      ],
+      "hs": "0804.50 (indicative - confirm)",
+      "certificates": ["Valid written TCDA export permit", "Phytosanitary certificate (PPRSD)", "FDA export/clearance permit (fresh produce)", "Certificate of origin"],
+      "packaging": ["Supplier info + country of supply", "Net weight", "Batch", "Storage temperature", "Handling instructions", "Variety and grade where applicable"],
+      "storage": ["Licensed packhouse with hot-water treatment capability where destinations require", "Cool chain"],
+      "temperature": "Cold chain essential for fresh (approx. 12-13C typical - confirm with buyer)",
+      "transport": ["Sea reefer for volume (about 20-25 days to Europe)", "Air for early-season premium"],
+      "ports": ["Tema Port", "Kotoka International Airport"],
+      "buyerTypes": ["Importer", "Supermarket", "Distributor", "Processor"],
+      "rejectionReasons": ["Fruit-fly signs", "Residue above MRL", "Over/under-ripeness", "Chilling injury from wrong set-point", "Labelling errors"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 3000, "buyerPrice": 1.10, "note": "Indicative. TCDA also announced a 2026 minimum producer price for fresh mango at GHS 5.22/kg (major season) - TCDA.gov.gh."}, "costLines": ["Fruit purchase", "Treatment/packhouse", "Packaging", "Cold chain", "Certifications", "Freight", "Agent", "Spoilage"]},
+      "destinationNotes": {"uk": "Confirm UK plant-health + marketing rules", "eu": "EU MRLs + marketing standards; some origins face increased controls - check", "usa": "APHIS treatment protocols may apply - confirm", "uae": "Confirm UAE rules"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "icon": "🍯",
+      "category": "special",
+      "forms": [
+        {"id": "bottled", "name": "Bottled/processed honey", "note": "Food pathway: FDA prepackaged-foods requirements + labelling"},
+        {"id": "raw_comb", "name": "Raw/comb honey", "note": "Still food - food-safety pathway; check destination rules"},
+        {"id": "beeswax", "name": "Beeswax", "note": "Non-food product - confirm the applicable authority and destination rules"},
+        {"id": "propolis", "name": "Propolis / royal jelly", "note": "Health-product-like - confirm the applicable authority and destination rules"},
+        {"id": "live_bees", "name": "Live bees", "note": "Special examination required - VSD/PPRSD and destination rules; do not ship without confirmation"}
+      ],
+      "hs": "0409 honey / 1521 beeswax (indicative - confirm)",
+      "certificates": ["FDA export/clearance permit", "Certificate of analysis (quality/residues) where buyer requires", "Certificate of origin", "Health certificate where destination requires"],
+      "packaging": ["Full food labelling for bottled honey (ingredients, net weight, batch, best-before, producer details)", "Food-grade jars with secure seals", "Handling instructions"],
+      "storage": ["Cool, dry, food-compliant store", "Avoid heat - honey can ferment/expand in transit heat"],
+      "temperature": "Ambient, protected from heat",
+      "transport": ["Sea for volume (Tema)", "Air for small premium lots"],
+      "ports": ["Tema Port", "Kotoka International Airport"],
+      "buyerTypes": ["Importer", "Supermarket", "Health-food distributor", "Processor"],
+      "rejectionReasons": ["Residues above limits (antibiotics are a classic honey rejection cause)", "Fermentation/bulging jars", "Moisture above spec", "Wrong labelling", "Missing analysis certificate"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 1000, "buyerPrice": 3.50, "note": "Indicative - premium grades and certifications earn more."}, "costLines": ["Honey purchase", "Jars/labels", "Processing", "Tests", "Certifications", "Freight", "Agent"]},
+      "destinationNotes": {"uk": "UK honey compositional standards + residue rules", "eu": "EU honey directives + strict residue testing", "usa": "US FDA rules incl. labelling", "uae": "UAE food rules; confirm"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "icon": "🥚",
+      "category": "animal",
+      "forms": [
+        {"id": "table", "name": "Table eggs", "note": "VSD + food-safety pathway; destinations impose strict poultry-disease controls"},
+        {"id": "hatching", "name": "Hatching/fertile eggs", "note": "Strict veterinary pathway - import permits and health rules"}
+      ],
+      "hs": "0407.21-29 (indicative - confirm)",
+      "certificates": ["VSD registration + veterinary health certificate", "FDA food-safety compliance where applicable", "Destination import permit (usually required)"],
+      "packaging": ["Egg-specific packaging (pulp/flats/cases)", "Producer details", "Packing date/best-before", "Storage temperature on label"],
+      "storage": ["Cool store", "Maintain cold chain; eggs are fragile and perishable"],
+      "temperature": "Cool chain required; confirm set-point",
+      "transport": ["Air freight strongly preferred (short shelf life)"],
+      "ports": ["Kotoka International Airport"],
+      "buyerTypes": ["Importer", "Distributor", "Food processor", "Wholesaler"],
+      "rejectionReasons": ["Disease-control rules at destination", "Broken eggs", "Temperature abuse", "Missing health certificate", "Expired shelf life"],
+      "profitability": {"unit": "USD per crate", "example": {"quantityKg": 2000, "buyerPrice": 0.15, "note": "Price per egg/crate varies - model with your real numbers."}, "costLines": ["Production", "Packs", "Cold chain", "Certifications", "Air freight", "Agent", "Breakage allowance"]},
+      "destinationNotes": {"uk": "Strict animal-product import rules - confirm Ghana eligibility first", "eu": "Strict veterinary rules; establishment/origin requirements", "usa": "Confirm with USDA", "ecowas": "Regional trade is often the practical first market"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "poultry",
+      "name": "Poultry (live birds & chicken meat)",
+      "icon": "🐔",
+      "category": "animal",
+      "forms": [
+        {"id": "live", "name": "Live chickens", "note": "VSD full pathway: inspection, vaccination, testing, quarantine, approved transport"},
+        {"id": "frozen_meat", "name": "Frozen chicken meat", "note": "VSD + FDA frozen-meat guideline + destination approvals"}
+      ],
+      "hs": "0105 live / 0207 meat (indicative - confirm)",
+      "certificates": ["VSD veterinary permit + health certificate", "Vaccination/testing records", "FDA export clearance (meat)", "Destination import permit", "Approved-establishment documentation where destination requires"],
+      "packaging": ["For meat: full food labelling, net weight, batch, storage temperature", "For live: approved crates/transport conditions per VSD"],
+      "storage": ["Cold store meeting FDA requirements (meat)", "Approved housing/transport (live)"],
+      "temperature": "Frozen chain for meat (-18C typical - confirm); welfare conditions for live birds",
+      "transport": ["Air for live birds", "Sea reefer or air for frozen meat"],
+      "ports": ["Kotoka International Airport", "Tema Port"],
+      "buyerTypes": ["Importer", "Processor", "Distributor", "Wholesaler"],
+      "rejectionReasons": ["Avian-disease restrictions at destination", "Missing establishment approval", "Temperature abuse", "Wrong labelling", "Missing import permit"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 1000, "buyerPrice": 2.20, "note": "Indicative only."}, "costLines": ["Birds/feed", "Slaughter/processing", "Freezing", "Packaging", "Certifications", "Freight", "Agent"]},
+      "destinationNotes": {"uk": "Strict animal-product rules - confirm eligibility BEFORE investing", "eu": "Approved-establishment requirement - the establishment itself must be EU-listed", "usa": "USDA rules; confirm", "ecowas": "Often the practical first market"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "meat",
+      "name": "Meat (cattle, goats, sheep, pork)",
+      "icon": "🥩",
+      "category": "animal",
+      "forms": [
+        {"id": "chilled", "name": "Chilled meat", "note": "VSD + destination veterinary rules; short shelf life"},
+        {"id": "frozen", "name": "Frozen meat", "note": "VSD + FDA frozen-meat guideline + destination approvals"},
+        {"id": "processed", "name": "Processed meat products", "note": "FDA prepackaged-foods pathway + destination rules"}
+      ],
+      "hs": "02.01-02.08 groups (indicative - confirm)",
+      "certificates": ["VSD veterinary permit + health certificate", "FDA export clearance", "Destination import permit", "Halal certificate where destination/buyer requires", "Approved-establishment documents where required"],
+      "packaging": ["Full food labelling (product, net weight, batch, storage temperature, producer)", "Slaughter/processing details where destination requires"],
+      "storage": ["Approved cold store", "Cold chain maintained end to end"],
+      "temperature": "Chilled ~0-4C / frozen ~-18C (confirm with buyer)",
+      "transport": ["Air for chilled premium cuts", "Sea reefer for frozen volume"],
+      "ports": ["Kotoka International Airport", "Tema Port"],
+      "buyerTypes": ["Importer", "Processor", "Wholesaler", "Halal distributor"],
+      "rejectionReasons": ["Missing establishment approval at destination", "Veterinary certificate errors", "Temperature abuse", "Wrong labelling", "Disease-control restrictions"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 5000, "buyerPrice": 3.00, "note": "Indicative only."}, "costLines": ["Livestock purchase", "Slaughter/processing at approved facility", "Freezing", "Packaging", "Certifications", "Freight", "Agent"]},
+      "destinationNotes": {"uk": "Confirm eligibility - many destinations restrict meat origins", "eu": "Approved-establishment requirement", "usa": "USDA rules; confirm", "saudi": "Halal + approved-origin confirmation", "uae": "Halal + UAE rules"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    },
+    {
+      "id": "fish",
+      "name": "Fish & fishery products",
+      "icon": "🐟",
+      "category": "fish",
+      "forms": [
+        {"id": "fresh", "name": "Fresh/chilled fish", "note": "GSA Fish Inspection + FDA + catch documentation"},
+        {"id": "frozen", "name": "Frozen fish/shellfish", "note": "GSA approved establishments + FDA frozen guideline"},
+        {"id": "smoked", "name": "Smoked fish", "note": "Processed fish pathway - food-safety rules + destination rules"},
+        {"id": "dried", "name": "Dried fish", "note": "Processed pathway; moisture/packaging critical"}
+      ],
+      "hs": "0302-0308 groups / 1604-1605 processed (indicative - confirm)",
+      "certificates": ["GSA health certificate (EU Competent Authority system)", "FDA export/clearance permit", "Catch/traceability documentation where applicable", "Certificate of origin", "Destination health certificate format"],
+      "packaging": ["Product name/species (scientific name often required)", "Net weight", "Batch/lot for traceability", "Storage temperature", "Processing date", "Approved-establishment number where required"],
+      "storage": ["Approved cold store (required for EU-oriented exports)", "Ice plants/landing sites inspected by GSA"],
+      "temperature": "0-4C chilled / -18C frozen (confirm with buyer)",
+      "transport": ["Sea reefer for frozen volume", "Air for premium chilled"],
+      "ports": ["Tema Port", "Kotoka International Airport"],
+      "buyerTypes": ["Seafood importer", "Processor", "Distributor", "Supermarket", "Wholesaler"],
+      "rejectionReasons": ["Establishment not approved by destination", "Health certificate errors", "Histamine/quality failures in chilled fish", "Temperature abuse", "Illegal/catch-documentation problems", "Species/label mismatch"],
+      "profitability": {"unit": "USD per kg", "example": {"quantityKg": 10000, "buyerPrice": 2.80, "note": "Indicative only."}, "costLines": ["Raw fish purchase", "Processing labour", "Freezing/glazing", "Packaging", "Certifications", "Freight", "Agent", "Rejection allowance"]},
+      "destinationNotes": {"eu": "Establishment must be on the EU-approved list - the FACILITY is regulated, not just the fish. Work with GSA Fish Inspection from day one", "uk": "Confirm UK-listed establishments rules", "usa": "US FDA rules; confirm", "china": "GACC establishment registration required - verify BEFORE contracting"},
+      "lastVerified": "2026-09-10",
+      "confidence": "yellow"
+    }
+  ]
+}
