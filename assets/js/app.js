@@ -111,9 +111,9 @@ GEN.renderWizard = function(){
     if(d.qty && parseFloat(d.qty)>0) canNext = true;
   }
   else if(q==="destination"){
-    var list = [["uk","United Kingdom 🇬🇧"],["eu","European Union 🇪🇺"],["usa","USA 🇺🇸"],["canada","Canada 🇨🇦"],["uae","UAE 🇦🇪"],["saudi","Saudi Arabia 🇸🇦"],["china","China 🇨🇳"],["india","India 🇮🇳"],["ecowas","ECOWAS / regional 🌍"],["other","Other destination 🌐"]];
-    body = '<div class="wiz-q">4 · Where is it going?</div><div class="wiz-hint">The destination country adds its own requirements — you must satisfy both Ghana and the destination.</div><div class="chips">';
-    for(var i2=0;i2<list.length;i2++){ body += '<div class="chip'+(d.destId===list[i2][0]?' sel':'')+'" onclick="GEN.wizDest(\''+list[i2][0]+'\')">'+list[i2][1]+'</div>'; }
+    var dests = window.GEN_DESTINATIONS.destinations;
+    body = '<div class="wiz-q">4 · Where is it going?</div><div class="wiz-hint">The destination country adds its own requirements — you must satisfy both Ghana and the destination. The navigator covers markets worldwide.</div><div class="chips">';
+    for(var i2=0;i2<dests.length;i2++){ body += '<div class="chip'+(d.destId===dests[i2].id?' sel':'')+'" onclick="GEN.wizDest(\''+dests[i2].id+'\')">'+dests[i2].flag+' '+GEN.esc(dests[i2].name)+'</div>'; }
     body += '</div>';
     canNext = true;
   }
