@@ -42,11 +42,12 @@
       "id": "u4",
       "date": "2026-08-01",
       "agency": "Ghana Shippers' Authority",
-      "title": "Shipper registration required before ICUMS shipment transactions (Act 1122)",
-      "body": "Under the Ghana Shippers' Authority Act, 2024 (Act 1122), GSA's regulatory role expanded. As reported in 2026, importers and exporters are required to register with the Authority before processing shipment transactions through ICUMS.",
+      "title": "Mandatory ICUMS shipper registration (Act 1122 framework)",
+      "body": "Under the Ghana Shippers' Authority Act, 2024 (Act 1122), GSA's regulatory role expanded. Shippers (importers and exporters) must register with the Authority before processing shipment transactions through ICUMS. GSA's official news confirms 'mandatory registration of shippers on the Integrated Customs Management System (ICUMS)' and sensitisation of freight forwarders and border communities (e.g. Aflao) on ICUMS and PPRSD procedures.",
       "affects": ["all"],
-      "confidence": "yellow",
+      "confidence": "green",
       "officialSource": "Ghana Shippers' Authority (shippers.org.gh)",
+      "verifiedNote": "Verified live 2026-09-10 via shippers.org.gh news search: 'GSA Sensitises Freight Forwarders on Mandatory ICUMS Shipper Registration' + Act 1122 references.",
       "action": "Register as a shipper with GSA before your first shipment. Toll free: 0800 300 055. HQ: 7th Floor, Ghana Shippers' House, No. 12 Cruickshank Street, West Ridge, Accra."
     },
     {

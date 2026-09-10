@@ -113,7 +113,8 @@
       "renewal": "Product registration renewals per FDA schedule; permits are per consignment",
       "confidence": "green",
       "lastVerified": "2026-09-10",
-      "source": "fdaghana.gov.gh (verified live 2026-09-10: Act 851 mandate, services, guidelines hub at fdaghana.gov.gh/guidelines/). The specific export-guideline texts (fresh produce 30 Jun 2025; frozen meat/fish/shellfish 2025; prepackaged export) are from 2026 research - download and confirm each guideline from the FDA guidelines hub before relying on details.",
+      "source": "fdaghana.gov.gh (verified live 2026-09-10: Act 851 mandate, services, guidelines hub at fdaghana.gov.gh/guidelines/, Food Products guidelines page verified with 10 guidelines incl. General Labelling Requirement). The specific export-guideline texts (fresh produce 30 Jun 2025; frozen meat/fish/shellfish 2025; prepackaged export) are from 2026 research - download and confirm each guideline from the FDA guidelines hub before relying on details.",
+      "verifiedLinks": ["https://fdaghana.gov.gh/guidelines-for-food-products/", "https://fdaghana.gov.gh/wp-content/uploads/2024/02/GENERAL-LABELLING-REQUIREMENTS-1.pdf"],
       "keyRule": "Fresh fruits and vegetables: storage facility must be licensed, an export/clearance permit is required for each consignment, and a valid phytosanitary certificate must accompany the consignment. Non-compliant consignments can be detained, corrected or destroyed at the exporter's cost.",
       "usedByCategories": ["fresh_plant", "processed", "animal", "fish"]
     },
