@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  body{font-family:Georgia,"Times New Roman",serif;color:#1c2b24;margin:0;padding:34px 40px;font-size:11.5pt;line-height:1.5}
+  .band{background:#0B4D2F;color:#fff;border-radius:12px;padding:22px 26px;margin-bottom:18px}
+  .band h1{margin:0;font-size:20pt;color:#fff}
+  .band p{margin:6px 0 0;color:#F3E4B8}
+  h2{color:#0B4D2F;font-size:13.5pt;border-bottom:2px solid #C9A227;padding-bottom:4px;margin:20px 0 8px}
+  table{width:100%;border-collapse:collapse;font-size:10.5pt}
+  td,th{border-bottom:1px solid #d8e2dc;padding:6px 8px;text-align:left;vertical-align:top}
+  th{background:#E7F2EC;color:#0B4D2F}
+  .badge{display:inline-block;background:#F3E4B8;color:#6b5200;border-radius:10px;padding:2px 10px;font-size:9.5pt;font-weight:bold}
+  code, .mono{font-family:Consolas,monospace;font-size:9.5pt;background:#f4f6f4;padding:1px 4px;border-radius:4px}
+  .note{background:#FBF6E7;border-left:5px solid #C9A227;padding:10px 14px;border-radius:8px;margin:10px 0}
+  .foot{margin-top:22px;font-size:9pt;color:#51625a;border-top:1px solid #d8e2dc;padding-top:10px}
+</style></head>
+<body>
+<div class="band">
+  <h1>Ghana Agricultural Export Navigator — Project Brief</h1>
+  <p>Paul Hungo · Private business project · Built and published 10 September 2026</p>
+</div>
+
+<h2>1 · What has been built</h2>
+<p>A <strong>decision-engine website</strong> for Ghanaian agricultural exporters — not a list of information. The visitor answers six questions (Product → Form → Quantity → Destination → Buyer → Transport) and the site generates a personalised, stage-by-stage <strong>Export Roadmap</strong>: which offices to register at and in what order, which regulators apply to the product, which certificates are needed per consignment, compliant packaging and labelling, storage and cold chain, the full export route (farm → packhouse → inspection → customs/ICUMS → Tema/Kotoka → vessel → destination), destination-country requirements, a printable document checklist, a profit and break-even calculator, an export-readiness score, buyer resources, a rejection problem-solver, banking and export-proceeds guidance, a scam shield, and a regulation-updates feed.</p>
+<p>It works offline on any phone (installable app), shares roadmaps to WhatsApp, and prints "take this to the office" packs. A farm-group mode assigns every stage to a role in a cooperative.</p>
+
+<h2>2 · Live platform</h2>
+<table>
+<tr><th>Item</th><th>Detail</th></tr>
+<tr><td>Live website</td><td><strong>https://paulhungo.github.io/ghana-export-navigator/</strong> (installable as an app: open in Safari/Chrome → Add to Home Screen)</td></tr>
+<tr><td>Code repository</td><td>github.com/paulhungo/ghana-export-navigator</td></tr>
+<tr><td>Master copy on this PC</td><td><span class="mono">C:\Users\user\GhanaExportNavigator\</span></td></tr>
+<tr><td>Local run</td><td>Double-click <span class="mono">START-Navigator.bat</span> (or the index.html file directly)</td></tr>
+</table>
+
+<h2>3 · The living database</h2>
+<p>The engine is powered by four JSON databases: <strong>agencies</strong> (12: ORC, GRA, GEPA, Ghana Shippers' Authority, FDA, PPRSD, VSD, TCDA, COCOBOD, Ghana Standards Authority, GPHA, Bank of Ghana), <strong>destinations</strong> (UK, EU, USA, Canada, UAE, Saudi Arabia, China, India, ECOWAS + generic), <strong>products</strong> (12 launch products with form selectors — e.g. cassava: fresh / dried chips / gari / flour / starch / feed — plus a router that builds the correct pathway for <em>any</em> product typed in), and <strong>updates</strong> (TCDA permit rule from 1 April 2026, FDA 2025 fresh-produce and frozen meat/fish guidelines, GSA Act 1122 / ICUMS shipper registration, Bank of Ghana Letter of Commitment notice).</p>
+<div class="note"><strong>Information freshness rule:</strong> every record shows "Information last verified: [date]" and its official source, with 🟢 verified / 🟡 confirm / 🔴 warning flags. Only official sources (Ghana regulators → destination governments → international organisations) are treated as authority. The site never invents requirements: unknowns are flagged for confirmation with the agency.</div>
+
+<h2>4 · Your monthly routine (this keeps the site the most trusted in Ghana)</h2>
+<p>One Friday morning per month: open each agency's official website, check for changes, update the records and their "last verified" dates in <span class="mono">data\*.json</span>, run <span class="mono">python _build\pack_data.py</span>, bump the build number in <span class="mono">version.json</span>, then commit and push. Every installed app updates itself within a minute. The awareness file (<span class="mono">Documents\Export-Navigator-Awareness.md</span>) holds the full operating memory.</p>
+
+<h2>5 · Recommended next steps</h2>
+<table>
+<tr><th>Priority</th><th>Action</th></tr>
+<tr><td>1</td><td>Live-verify the 🟡 records with GEPA (site was unreachable on 10 Sep) and PPRSD — then flip them to 🟢 with today's date.</td></tr>
+<tr><td>2</td><td>Walk one real case end-to-end (e.g. a fresh pineapple shipment) using the roadmap to pressure-test every stage card.</td></tr>
+<tr><td>3</td><td>Add products through <span class="mono">admin.html</span> as you research them (each takes minutes).</td></tr>
+<tr><td>4</td><td>Build the buyer and freight-forwarder directories from verified real companies.</td></tr>
+<tr><td>5</td><td>Later: Twi / Ewe / Dagbani translations with read-aloud (the structure is already translation-ready).</td></tr>
+</table>
+
+<h2>6 · Standing caveat (printed on the site itself)</h2>
+<p>This platform is a regulatory/export framework guide — not a legal opinion. For a live shipment, the exporter must verify the current requirement with the relevant regulator and the destination-country authority, because permits, fees, restrictions and market-access conditions can change. That honesty is exactly what makes the site trustworthy.</p>
+
+<div class="foot">Ghana Agricultural Export Navigator · Paul Hungo · 10 September 2026 · Files: <span class="mono">C:\Users\user\GhanaExportNavigator\</span> · Live: paulhungo.github.io/ghana-export-navigator · Awareness memory: <span class="mono">Documents\Export-Navigator-Awareness.md</span></div>
+</body></html>
