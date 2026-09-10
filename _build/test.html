@@ -41,6 +41,7 @@ function runTests(){
     step("gen-custom", function(){ GEN.wiz.data = {productId:"__custom", productName:"Snails", category:"animal", formId:null, formName:"Snails", qty:"200", unit:"kg", destId:"eu", buyer:"need", transport:"sea"}; GEN.generate(); });
     step("gen-coconut", function(){ GEN.wiz.data = {productId:"coconut", productName:"Coconut", category:"tree_crop", formId:"oil", formName:"Virgin coconut oil", qty:"3000", unit:"kg", destId:"uae", buyer:"have", transport:"sea"}; GEN.generate(); });
     step("gen-fish", function(){ GEN.wiz.data = {productId:"fish", productName:"Fish", category:"fish", formId:"frozen", formName:"Frozen fish/shellfish", qty:"10000", unit:"kg", destId:"eu", buyer:"have", transport:"sea"}; GEN.generate(); });
+    step("tap-through", function(){ GEN.startWizard(); GEN.wizPick('pineapple'); GEN.wizPickForm('fresh'); GEN.wizQty('5000'); GEN.wizUnit('kg'); GEN.wizDest('uk'); GEN.wizBuyer('need'); GEN.wizTransport('sea'); if(GEN.wiz.data.transport!=='sea'){throw new Error('tap-through failed');} GEN.wizNext(); });
     step("docs", function(){ GEN.renderDocChecklist(); document.getElementById('doc-product-select').value = "pineapple"; GEN.renderDocChecklist(); });
     step("calc", function(){ document.getElementById('c-qty').value = 1000; document.getElementById('c-price').value = 1.20; document.getElementById('c-lines').querySelector('.c-cost').value = 950; GEN.runCalc(); });
     step("rejection", function(){ GEN.renderRejectionSolver('gen-rejection'); });

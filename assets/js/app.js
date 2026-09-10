@@ -196,6 +196,7 @@ GEN.wizQty = function(v){ GEN.wiz.data.qty = v; var n=document.querySelector('#w
 GEN.wizUnit = function(v){ GEN.wiz.data.unit = v; };
 GEN.wizDest = function(id){ GEN.wiz.data.destId = id; GEN.renderWizard(); };
 GEN.wizBuyer = function(v){ GEN.wiz.data.buyer = v; GEN.renderWizard(); };
+GEN.wizTransport = function(v){ GEN.wiz.data.transport = v; GEN.renderWizard(); };
 
 GEN.wizNext = function(){
   GEN.wiz.step++;
