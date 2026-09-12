@@ -117,10 +117,10 @@ GEN.renderWizard = function(){
     }
   }
   else if(q==="quantity"){
-    body = '<div class="wiz-q">3 · How much are you exporting?</div><div class="wiz-hint">Quantity changes freight advice and economics — an honest number beats a hopeful one.</div>'+
+    body = '<div class="wiz-q">3 · How much are you exporting?</div><div class="wiz-hint">Some products are WEIGHED (kg, tonnes), some are COUNTED one-by-one (pieces, heads, tubers, birds), and some are PACKED (crates, cartons, bags, punnets). Choose the unit you will sell in — an honest number beats a hopeful one.</div>'+
       '<input class="wiz-input" type="number" id="w-qty" placeholder="Quantity (e.g. 5)" value="'+GEN.esc(d.qty)+'" oninput="GEN.wizQty(this.value)">'+
       '<select class="wiz-input" id="w-unit" onchange="GEN.wizUnit(this.value)">'+
-      ['kg','tonnes','crates','cartons','birds','litres','units'].map(function(u){return '<option '+(d.unit===u?'selected':'')+'>'+u+'</option>';}).join('')+'</select>';
+      ['kg','tonnes','pieces (counted one-by-one)','heads (live animals)','birds','crates','cartons','boxes','bags / sacks','baskets','trays','punnets','dozens','tubers','bunches / stems','bottles','jars','drums','litres','other unit'].map(function(u){return '<option '+(d.unit===u?'selected':'')+'>'+u+'</option>';}).join('')+'</select>';
     if(d.qty && parseFloat(d.qty)>0) canNext = true;
   }
   else if(q==="destination"){

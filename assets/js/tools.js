@@ -38,7 +38,7 @@ GEN.copyText = function(text){
 /* ---------------- profit calculator ---------------- */
 GEN.DEFAULT_COST_LINES = ["Farm production","Aggregation","Sorting/grading","Packaging + labels","Storage / cold chain","Labour","Laboratory tests","Certifications (regulator fees)","Transport to warehouse","Transport to port/airport","Clearing agent","Customs & port charges","Container/reefer","International freight","Insurance","Bank charges & FX costs","Commission","Spoilage / rejection allowance"];
 GEN.CURRENCIES = [["GHS","GH\u20B5 \u2014 Ghana Cedi"],["USD","$ \u2014 US Dollar"],["EUR","\u20AC \u2014 Euro"],["GBP","\u00A3 \u2014 British Pound"],["XOF","CFA Franc"],["NGN","Naira"],["OTHER","Other (I will type it)"]];
-GEN.UNITS = ["kg","tonnes","crates","cartons","boxes","bags","baskets","pieces","birds","crates of eggs","litres","other (I will type it)"];
+GEN.UNITS = ["kg","tonnes","pieces (counted one-by-one)","heads (live animals)","birds","crates of eggs","crates","cartons","boxes","bags / sacks","baskets","trays","punnets","dozens","tubers","bunches / stems","bottles","jars","drums","litres","other (I will type it)"];
 
 GEN.renderCalc = function(elId, defaults){
   var el = document.getElementById(elId);
