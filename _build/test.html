@@ -4,7 +4,7 @@
 <body>
 <div class="banner-err" id="errbanner"></div>
 <main>
-<div id="wizard"></div><div id="roadmap-holder"></div><div id="products-grid"></div><div id="agencies-holder"></div><div id="markets-holder"></div><div id="buyer-types-holder"></div><div id="updates-holder"></div><div id="tools-holder"></div><div id="docs-holder"></div><select id="doc-product-select" onchange="GEN.renderDocChecklist()"></select>
+<section class="page active" id="page-home"></section><section class="page" id="page-roadmap"></section><section class="page" id="page-products"></section><div id="wizard"></div><div id="roadmap-holder"></div><div id="products-grid"></div><div id="agencies-holder"></div><div id="markets-holder"></div><div id="buyer-types-holder"></div><div id="updates-holder"></div><div id="tools-holder"></div><div id="docs-holder"></div><select id="doc-product-select" onchange="GEN.renderDocChecklist()"></select>
 </main>
 <script>
 document.body.setAttribute('data-js','alive');
@@ -45,6 +45,8 @@ function runTests(){
     step("docs", function(){ GEN.renderDocChecklist(); document.getElementById('doc-product-select').value = "pineapple"; GEN.renderDocChecklist(); });
     step("calc", function(){ document.getElementById('c-qty').value = 1000; document.getElementById('c-price').value = 1.20; document.getElementById('c-lines').querySelector('.c-cost').value = 950; GEN.runCalc(); });
     step("rejection", function(){ GEN.renderRejectionSolver('gen-rejection'); });
+    step("backnav", function(){ GEN.show('products'); GEN.launch('mango'); if(GEN._pageStack.indexOf('products')===-1){throw new Error('products not on trail');} if(GEN.wiz.data.productId!=='mango'){throw new Error('launch failed');} if(GEN.wiz.data.destId!=='uk'){throw new Error('launch did not preserve answers');} GEN.back(); });
+    step("edit-answers", function(){ GEN.editAnswers(); if(!GEN.wiz.data.productId){throw new Error('editAnswers lost answers');} });
     stepName = "done";
     document.title = "TESTDONE";
     window.__testDone = true;

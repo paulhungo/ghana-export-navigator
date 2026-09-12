@@ -146,7 +146,8 @@ GEN.renderWizard = function(){
   }
 
   var nav = '<div class="wiz-nav no-print">'+
-    (s>0?'<button class="btn small ghost" onclick="GEN.wizBack()">← Back</button>':'<span></span>')+
+    (s>0 ? '<button class="btn small ghost" onclick="GEN.wizBack()">← Back</button>'
+         : (GEN._pageStack.length ? '<button class="btn small ghost" onclick="GEN.back()">← Back</button>' : '<span></span>'))+
     '<button class="btn" '+(canNext?'':'disabled')+' onclick="GEN.wizNext()">'+(s===GEN.WIZ_Q.length-1?'Generate my roadmap →':'Next →')+'</button></div>'+
     '<p class="error-msg" id="wiz-err">Choose an option first.</p>';
 
@@ -272,7 +273,7 @@ GEN.renderRoadmap = function(){
   h += '<div>Export classification: '+GEN.esc(pathway.label)+'</div></div>';
   if(autoNote) h += '<div style="margin-top:10px;background:rgba(255,255,255,.15);border-radius:10px;padding:10px 12px;font-size:.9rem">'+autoNote+'</div>';
   h += '<div class="btn-row no-print"><button class="btn gold" onclick="GEN.shareRoadmap()">📲 Share roadmap (WhatsApp)</button><button class="btn" onclick="GEN.printPage()">🖨️ Print / Save as PDF pack</button><button class="btn ghost" style="border-color:#fff;color:#fff" onclick="GEN.toggleGroup()">'+
-      (GEN._groupMode?'👥 Group mode: ON':'👥 Farm-group mode')+'</button><button class="btn ghost" style="border-color:#fff;color:#fff" onclick="GEN.startWizard()">↻ Change answers</button></div></div>';
+      (GEN._groupMode?'👥 Group mode: ON':'👥 Farm-group mode')+'</button><button class="btn ghost" style="border-color:#fff;color:#fff" onclick="GEN.editAnswers()">↻ Change answers</button><button class="btn ghost" style="border-color:#fff;color:#fff" onclick="GEN.back()">← Back</button></div></div>';
 
   /* --- registration --- */
   h += '<div class="roadmap-grid">';
@@ -469,10 +470,19 @@ GEN.renderProducts = function(filter){
 GEN.filterProducts = function(v){ GEN.renderProducts(v); };
 
 GEN.launch = function(id){
-  GEN.startWizard(null);
+  /* keep any answers the user already made (destination, buyer, quantity, transport) */
+  var d = GEN.wiz.data;
+  var keep = (d && (d.destId || d.buyer || d.qty || d.transport)) ? JSON.parse(JSON.stringify(d)) : null;
+  GEN.startWizard(keep);
   GEN.wiz.step = 1;
   GEN.wizPick(id);
   if(GEN.product(id).forms.length===1){ GEN.wiz.step = 2; GEN.renderWizard(); }
+};
+
+GEN.editAnswers = function(){
+  var s = GEN.state ? JSON.parse(JSON.stringify(GEN.state)) : null;
+  GEN.startWizard(s);
+  if(s) GEN.toast("Your answers are kept — change any step, then generate again");
 };
 
 GEN.startCustomProduct = function(){

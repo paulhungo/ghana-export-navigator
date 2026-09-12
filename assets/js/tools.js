@@ -3,6 +3,7 @@ window.GEN = window.GEN || {};
 
 GEN.toast = function(msg){
   var t = document.getElementById('toast');
+  if(!t) return;
   t.textContent = msg; t.style.display = 'block';
   clearTimeout(GEN._toastTimer);
   GEN._toastTimer = setTimeout(function(){ t.style.display='none'; }, 2600);
